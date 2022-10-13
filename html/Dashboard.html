@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Globus Wallet | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="../css/Dashboard.css">
+  <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <div class="navbar-brand">
+          <img src="../images/Logo-.png" alt="Sample photo" class="img-fluid logo-img"/>
+        </div>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+          </div>
+          <div class="d-flex">
+            <div class="me-2">Joy .E. Ihama</div>
+            <a href="./user/UserDetail.html">
+              <img src="../images/girl.jpg"
+                class="img-fluid rounded-circle"
+                alt="Profile" width="20" height="20"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-3 borderR bg-white">
+        <div class="tabSpacing">
+          <nav class="nav flex-column nav-pills nav-fill">
+            <li class="nav-item pt-3">
+              <a class="nav-link active turnBlack" href="#">
+                Dashboard <i class="fa-solid fa-table-columns"></i></a>
+            </li>
+            <li class="nav-item pt-3">
+              <a class="nav-link active turnBlack" href="./SendMoney.html">
+                Send Money <i class="fa-sharp fa-solid fa-paper-plane"></i></a>
+            </li>
+          </nav>
+        </div>
+
+
+        <div class="pt-19">
+          <nav class="nav flex-column nav-pills nav-fill">
+            <li class="nav-item pt-3">
+              <a class="nav-link active turnBlack" href="#">
+                Notifications <i class="fa-sharp fa-solid fa-bell"></i></a>
+            </li>
+            <li class="nav-item pt-3">
+              <a class="nav-link active turnBlack" href="./UserLogIn.html">
+                Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </li>
+          </nav>
+        </div>
+      </div>
+
+
+      <div class="col-9">
+        <div class="row pb-5">
+          <div class="col-4">
+            <div class="card testShadow">
+              <div class="card-header bg-danger">
+                Balance
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">NGN 10,000.00</h4>
+                <p class="card-text">Current Balance</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card testShadow">
+                  <div class="card-header bg-danger">
+                    Add Funds
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">NGN 10,000.00</h4>
+                    <p class="card-text">Current Balance</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card testShadow">
+                  <div class="card-header bg-danger">
+                    Withdraw Funds
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">NGN 10,000.00</h4>
+                    <p class="card-text">Current Balance</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- dont touch -->
+
+        <div class="row p-3 testShadow">
+          <div class="col-12 bg-danger">
+            <div class="row pb-3">
+              <div class="col-10 pt-3">TRANSACTIONS</div>
+              <div class="col-1 pt-3"><i class="fa-solid fa-magnifying-glass"></i></div>
+              <div class="col-1 pt-3"><i class="fa-sharp fa-solid fa-filter"></i></div>
+            </div>
+            
+          </div>
+
+
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>STATUS</th>
+                  <th>AMOUNT</th>
+                  <th>BENEFICIARY</th>
+                  <th>DATE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Paid</td>
+                  <td>NGN 11,000.00</td>
+                  <td>Adesola Thompson</td>
+                  <td>01/09/2021</td>
+                </tr>
+                <tr>
+                  <td>Failed</td>
+                  <td>NGN 15,000.00</td>
+                  <td>Isha Williams</td>
+                  <td>23/09/2022</td>
+                </tr>
+                <tr>
+                  <td>Paid</td>
+                  <td>NGN 11,000.00</td>
+                  <td>Adesola Thompson</td>
+                  <td>01/09/2021</td>
+                </tr>
+                <tr>
+                  <td>Failed</td>
+                  <td>NGN 15,000.00</td>
+                  <td>Isha Williams</td>
+                  <td>23/09/2022</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+</body>
+</html>

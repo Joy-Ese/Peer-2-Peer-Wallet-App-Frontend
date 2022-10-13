@@ -1,0 +1,27 @@
+body {
+  font-family: 'Open Sans', sans-serif!important;
+  font: 500 1rem 'Open Sans', sans-serif!important;
+}
+
+.testShadow {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.logo-img {
+  border-top-left-radius: .25rem; 
+  border-bottom-left-radius: .25rem;
+  width: 10rem;
+}
+
+.tabSpacing {
+  padding-bottom: 21rem!important;
+}
+
+.borderR {
+  border-right: 1px solid rgb(226, 223, 223);
+  /* border-left: 1px solid rgb(226, 223, 223); */
+}
+
+.turnBlack {
+  color: black!important;
+}
