@@ -32,27 +32,20 @@
               </svg>
               <div class="card-body p-5">
                 <h3 class="text-uppercase text-center mb-5">Log In</h3>
-                <form>
+                <form id="loginForm">
                   <div class="form-outline mb-3">
-                    <input type="text" id="userName" class="form-control form-control-lg" />
-                    <label class="form-label mt-2" for="userName">Username</label>
+                    <label class="form-label mt-2" for="userNameLogin">Username</label>
+                    <input type="text" id="userNameLogin" class="form-control form-control-lg" />
                   </div>
 
                   <div class="form-outline mb-3">
-                    <input type="password" id="password" class="form-control form-control-lg" />
-                    <label class="form-label mt-2" for="password">Password</label>
-                  </div>
-
-                  <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="checkBox" />
-                    <label class="form-check-label" for="checkBox">
-                      I agree to all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
-                    </label>
+                    <label class="form-label mt-2" for="passwordLogin">Password</label>
+                    <input type="password" id="passwordLogin" class="form-control form-control-lg" />
                   </div>
 
                   <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary btn-block gradient-custom-4 text-body">
-                      <a class="text-decoration-none text-dark" href="./Dashboard.html">Login</a>
+                    <button type="submit" value="Submit" class="btn btn-primary btn-block gradient-custom-4 text-body">
+                      Login
                     </button>
                   </div>
 
@@ -71,5 +64,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+  <script src="../js/UserLogin.js"></script>
 </body>
 </html>

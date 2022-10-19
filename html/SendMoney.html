@@ -48,58 +48,95 @@
           <nav class="nav flex-column nav-pills nav-fill">
             <li class="nav-item pt-3">
               <a class="nav-link active turnBlack" href="./Dashboard.html">
-                Dashboard <i class="fa-solid fa-table-columns"></i></a>
+                <b>Dashboard</b> <i class="fa-solid fa-table-columns"></i></a>
             </li>
             <li class="nav-item pt-3">
               <a class="nav-link active turnBlack" href="#">
-                Send Money <i class="fa-sharp fa-solid fa-paper-plane"></i></a>
+                <b>Send Money</b> <i class="fa-sharp fa-solid fa-paper-plane"></i></a>
             </li>
           </nav>
         </div>
-
-
         <div class="pt-19">
           <nav class="nav flex-column nav-pills nav-fill">
             <li class="nav-item pt-3">
               <a class="nav-link active turnBlack" href="#">
-                Notifications <i class="fa-sharp fa-solid fa-bell"></i></a>
+                <b>Notifications</b> <i class="fa-sharp fa-solid fa-bell"></i></a>
             </li>
             <li class="nav-item pt-3">
               <a class="nav-link active turnBlack" href="./UserLogIn.html">
-                Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                <b>Logout</b> <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </li>
           </nav>
         </div>
       </div>
 
 
-      <div class="col-9">
-        <div class="mask d-flex align-items-center h-100 pb-5 gradient-custom-3">
-          <div class="container h-100">
-            <div class="row p-3 d-flex justify-content-center align-items-center h-100">
-              <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                <div class="card card-style">
-                  <div class="card-body p-5">
-                    <form>
-                      <div class="form-outline mb-3">
-                        <input type="text" id="userName" class="form-control form-control-lg" />
-                        <label class="form-label mt-2" for="userName">Username</label>
-                      </div>
-      
-                      <div class="form-outline mb-3">
-                        <input type="password" id="password" class="form-control form-control-lg" />
-                        <label class="form-label mt-2" for="password">Password</label>
-                      </div>
+      <div class="col-9 d-flex justify-content-center pt-3">
+        <div class="col-9 card bg-light">
 
-                    </form>
-                  </div>
-                </div>
-              </div>
+
+          <div class="col-auto d-flex justify-content-center p-3">
+            <div class="fontColP">
+              REQUEST MONEY
+            </div>
+            <div class="form-check form-switch ps-5">
+              <input class="form-check-input" type="checkbox" id="form11Example4" checked />
+            </div>
+            <div class="fontColP"> 
+              SEND MONEY
             </div>
           </div>
+
+
+          <div class="card-header fontColP">
+            PERSONAL DETAILS
+          </div>
+          <div class="card-body">
+            <p class="fontCol">RECIPIENT</p>
+            
+            <form class="">
+              <div class="form-outline mb-4">
+                <input type="text" id="usernameInfo" class="form-control" 
+                  placeholder="Enter recipient's username" />
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label fontCol" for="userSend">YOU SEND</label>
+                <div class="input-group">
+                  <div class="input-group-text fontCol">NGN</div>
+                  <input type="number" class="form-control" id="userSend" />
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label fontCol" for="userGet">RECIPIENT GETS</label>
+                <div class="input-group">
+                  <div class="input-group-text fontCol">NGN</div>
+                  <input type="number" class="form-control" id="userGet" />
+                </div>
+              </div>
+
+
+
+
+              
+              <button type="submit" class="btn btn-primary mb-4">Continue</button>
+            </form>
+
+          </div>
         </div>
-      
+
+
+
+
+
+
+
       </div>
+
+
+
+
     </div>
   </div>
 

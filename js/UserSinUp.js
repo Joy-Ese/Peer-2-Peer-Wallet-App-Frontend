@@ -22,9 +22,9 @@ signUpForm.addEventListener("submit", function (e) {
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(payloadData),
-  }).then(response => response.json())
+  }).then(response => response.text())
   .then(result => console.log(result))
+  .then(() => {window.setTimeout(function(){location.reload()},3000)})
   .catch(error => console.log('error', error));
 });
-
 
