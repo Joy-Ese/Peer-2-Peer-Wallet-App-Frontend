@@ -32,7 +32,7 @@
                 <img src="../images/signup.jpg"
                   alt="Sample photo" class="img-fluid form-img"/>
               </div>
-              <form class="col-xl-6" id="signUpForm">
+              <form class="col-xl-6 signUpForm" id="signUpForm">
                 <div class="card-body p-md-5 text-black ">
                   <b><h3 class="mb-3 text-uppercase text-center">Sign Up</h3></b>
 
@@ -40,13 +40,15 @@
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="firstName">First Name</label>
-                        <input type="text" id="firstName" class="form-control form-control" />
+                        <input type="text" id="firstName" class="form-control " />
+                        <p>Error message</p>
                       </div>
                     </div>
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="lastName">Last Name</label>
-                        <input type="text" id="lastName" class="form-control form-control" />
+                        <input type="text" id="lastName" class="form-control " />
+                        <p>Error message</p>
                       </div>
                     </div>
                   </div>
@@ -55,13 +57,15 @@
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="userName">Username</label>
-                        <input type="text" id="userName" class="form-control form-control" />
+                        <input type="text" id="userName" class="form-control" />
+                        <p>Error message</p>
                       </div>
                     </div>
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="password">Password</label>
-                        <input type="password" id="password" class="form-control form-control" />
+                        <input type="password" id="password" class="form-control " />
+                        <p>Error message</p>
                       </div>
                     </div>
                   </div>
@@ -70,20 +74,23 @@
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="email">Email</label>
-                        <input type="email" id="email" class="form-control form-control" />
+                        <input type="email" id="email" class="form-control " />
+                        <p>Error message</p>
                       </div>
                     </div>
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="phoneNumber">Phone Number</label>
-                        <input type="text" id="phoneNumber" class="form-control form-control" />
+                        <input type="text" id="phoneNumber" class="form-control " />
+                        <p>Error message</p>
                       </div>
                     </div>
                   </div>
 
-                  <div class="form-outline mb-3">
+                  <div class="form-outline mt-2 mb-3">
                     <label class="form-label" for="address">Address</label>
-                    <input type="text" id="address" class="form-control form-control" />
+                    <input type="text" id="address" class="form-control " />
+                    <p>Error message</p>
                   </div>
 
                   <div class="d-flex justify-content-center pt-3">
@@ -105,6 +112,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <script src="../js/UserSignUp.js"></script>
 </body>
