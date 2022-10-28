@@ -13,18 +13,18 @@ body {
   width: 10rem;
 }
 
-.tabSpacing {
-  padding-bottom: 21rem!important;
-}
-
 .borderR {
   border-right: 1px solid rgb(226, 223, 223);
 }
 
-.turnBlack {
-  color: rgba(24, 23, 23, 0.87)!important;
+.borderB {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+.turnBlack {
+  color: rgb(99, 98, 98)!important;
+  font-size: 13px;
+}
 .fontColP {
   font-size: 15px;
   color: gray;

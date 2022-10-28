@@ -20,29 +20,33 @@ loginForm.addEventListener("submit", function (e) {
   }).then(response => response.text())
   .then(response => 
     {
-      if (response != null) 
-      {
-        const getUserDetails = () => {
-          var myHeaders = new Headers();
-          myHeaders.append("Authorization", `Bearer ${response}`);
-          fetch("https://localhost:44378/api/Dashboard/user-details", {
-          method: "GET",
-          headers: myHeaders,
-          })
-          .then(responseData => responseData.json())
-          .then(result => console.log(result))
-          .catch(error => console.log('error', error))
-        }
-        getUserDetails();
+      if (response == null) return console.log("Check Login Again")
+      
+      const getUserDetails = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${response}`);
+        fetch("https://localhost:44378/api/Dashboard/user-details", {
+        method: "GET",
+        headers: myHeaders,
+        })
+        .then(responseData => responseData.json())
+        .then(result => {
+          console.log(result);
+          redirectToDashboard(result);
+        })
+        .catch(error => console.log('error', error))
       }
-      else {
-        console.log("Check Login Again")
-      }
+      getUserDetails();
+      
     })
-  // .then(result => console.log(result))
-  // .then(() => {window.setTimeout(function(){location.reload()},3000)})
   .catch(error => console.log('error', error));
 });
 
 
+
+
+function redirectToDashboard(reload) {
+  localStorage.setItem("userData",JSON.stringify(reload))
+  location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);
+}
 

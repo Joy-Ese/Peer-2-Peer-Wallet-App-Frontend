@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 body {
-  font-family: 'Open Sans', sans-serif!important;
-  font: 500 1rem 'Open Sans', sans-serif!important;
+  font-family: 'Poppins', sans-serif!important;
+  font: 500 1rem 'Poppins', sans-serif!important;
 }
 
 .logo-img {

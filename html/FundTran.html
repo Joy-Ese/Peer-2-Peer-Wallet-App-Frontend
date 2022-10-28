@@ -11,13 +11,13 @@
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   
-  <link rel="stylesheet" href="../css/SendMoney.css">
+  <link rel="stylesheet" href="../css/FundTran.css">
   <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
   <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light borderB bg-white">
       <div class="container">
         <div class="navbar-brand">
           <img src="../images/Logo-.png" alt="Logo" class="img-fluid logo-img"/>
@@ -41,30 +41,47 @@
     </nav>
   </div>
 
-  <div class="container">
+  <div class="container bg-light">
     <div class="row">
-      <div class="col-3 borderR bg-white">
-        <div class="tabSpacing">
+      <div class="col-3 borderR bg-white mt-1">
+        <div class="">
           <nav class="nav flex-column nav-pills nav-fill">
             <li class="nav-item pt-3">
-              <a class="nav-link active turnBlack" href="./Dashboard.html">
-                <b>Dashboard</b> <i class="fa-solid fa-table-columns"></i></a>
+              <a class="nav-link bg-light turnBlack" href="#">
+                <div class="col-6 d-flex justify-content-between">
+                  <i class="fa fa-house mt-1"></i>
+                  <p>Dashboard</p>
+                </div>
+              </a>
             </li>
             <li class="nav-item pt-3">
-              <a class="nav-link active turnBlack" href="#">
-                <b>Send Money</b> <i class="fa-sharp fa-solid fa-paper-plane"></i></a>
+              <a class="nav-link bg-light turnBlack" href="./FundTran.html">
+                <div class="col-7 d-flex justify-content-between">
+                  <i class="fa fa-money-bill-transfer mt-1"></i>
+                  <p>Fund Transfer</p>
+                </div>
+              </a>
             </li>
           </nav>
         </div>
-        <div class="pt-19">
+
+        <div class="">
           <nav class="nav flex-column nav-pills nav-fill">
-            <li class="nav-item pt-3">
-              <a class="nav-link active turnBlack" href="#">
-                <b>Notifications</b> <i class="fa-sharp fa-solid fa-bell"></i></a>
+            <li class="nav-item">
+              <a class="nav-link bg-light turnBlack" href="#">
+                <div class="col-7 d-flex justify-content-between">
+                  <i class="fa fa-bell mt-1"></i>
+                  <p>Notifications</p>
+                </div>
+              </a>
             </li>
             <li class="nav-item pt-3">
-              <a class="nav-link active turnBlack" href="./UserLogIn.html">
-                <b>Logout</b> <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+              <a class="nav-link bg-light turnBlack" href="./UserLogIn.html">
+                <div class="col-5 d-flex justify-content-between">
+                  <i class="fa fa-arrow-right-from-bracket mt-1"></i>
+                  <p>Logout</p>
+                </div>
+              </a>
             </li>
           </nav>
         </div>
@@ -72,7 +89,7 @@
 
 
       <div class="col-9 d-flex justify-content-center pt-3">
-        <div class="col-9 card bg-light">
+        <div class="col-9 card ">
 
 
           <div class="col-auto d-flex justify-content-center p-3">

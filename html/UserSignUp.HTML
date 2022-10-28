@@ -5,15 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Globus Wallet | Sign Up</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
   <link rel="stylesheet" href="../css/UserSignUp.css">
   <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
-  <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+  </style>
+
 </head>
 <body>
   <section class="h-100 bg-white">
@@ -32,7 +34,8 @@
                 <img src="../images/signup.jpg"
                   alt="Sample photo" class="img-fluid form-img"/>
               </div>
-              <form class="col-xl-6 signUpForm" id="signUpForm">
+              <form class="col-xl-6 signUpForm" id="signUpForm" 
+                  onsubmit="setTimeout(function(){window.location.reload();},2000);">
                 <div class="card-body p-md-5 text-black ">
                   <b><h3 class="mb-3 text-uppercase text-center">Sign Up</h3></b>
 
@@ -116,5 +119,8 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <script src="../js/UserSignUp.js"></script>
+
+  <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

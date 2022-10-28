@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 body {
-  font-family: 'Open Sans', sans-serif!important;
-  font: 500 1rem 'Open Sans', sans-serif!important;
+  font-family: 'Poppins', sans-serif!important;
+  font: 500 1rem 'Poppins', sans-serif!important;
 }
 
 .testShadow {
@@ -13,24 +15,40 @@ body {
   width: 10rem;
 }
 
-.tabSpacing {
-  padding-bottom: 21rem!important;
-}
-
 .borderR {
   border-right: 1px solid rgb(226, 223, 223);
-  /* border-left: 1px solid rgb(226, 223, 223); */
+}
+
+.borderB {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .turnBlack {
-  color: rgba(24, 23, 23, 0.87)!important;
+  color: rgb(99, 98, 98)!important;
+  font-size: 13px;
 }
 
 .ms-n5 {
-  /* margin-left: -40px; */
   color: black;
 }
 
 .ms-n5:hover {
-  color: red;
+  color: #df3434;
+}
+
+.nSign {
+  color: #df3434;
+  font-size: 20px;
+}
+
+.spanBal {
+  font-size: 20px;
+}
+
+.liButton {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.colourCont {
+  background-color: #df3434;
 }

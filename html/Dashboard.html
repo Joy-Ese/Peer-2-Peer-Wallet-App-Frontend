@@ -5,19 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Globus Wallet | Dashboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   
   <link rel="stylesheet" href="../css/Dashboard.css">
   <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
-  <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light borderB bg-white">
       <div class="container">
         <div class="navbar-brand">
           <img src="../images/Logo-.png" alt="Sample photo" class="img-fluid logo-img"/>
@@ -28,7 +34,7 @@
             
           </div>
           <div class="d-flex">
-            <div class="me-2">Welcome Username</div>
+            <div class="me-2" id="dUsername">Welcome </div>
             <a href="./user/UserDetail.html">
               <img src="../images/girl.jpg"
                 class="img-fluid rounded-circle"
@@ -41,30 +47,47 @@
     </nav>
   </div>
 
-  <div class="container">
+  <div class="container bg-light">
     <div class="row">
-      <div class="col-3 borderR bg-white">
-        <div class="tabSpacing">
+      <div class="col-3 borderR bg-white mt-1">
+        <div class="">
           <nav class="nav flex-column nav-pills nav-fill">
-            <li class="nav-item pt-3">
-              <a class="nav-link active turnBlack" href="#">
-                <b>Dashboard</b> <i class="fa fa-table-columns"></i></a>
+            <li class="nav-item pt-3 liButton">
+              <a class="nav-link bg-light turnBlack" href="#">
+                <div class="col-6 d-flex justify-content-between">
+                  <i class="fa fa-house mt-1"></i>
+                  <p>Dashboard</p>
+                </div>
+              </a>
             </li>
-            <li class="nav-item pt-3">
-              <a class="nav-link active turnBlack" href="./SendMoney.html">
-                <b>Send Money</b> <i class="fa fa-paper-plane"></i></a>
+            <li class="nav-item pt-3 liButton">
+              <a class="nav-link bg-light turnBlack" href="./FundTran.html">
+                <div class="col-7 d-flex justify-content-between">
+                  <i class="fa fa-money-bill-transfer mt-1"></i>
+                  <p>Fund Transfer</p>
+                </div>
+              </a>
             </li>
           </nav>
         </div>
-        <div class="pt-19">
+
+        <div class="">
           <nav class="nav flex-column nav-pills nav-fill">
-            <li class="nav-item pt-3">
-              <a class="nav-link active turnBlack" href="#">
-                <b>Notifications</b> <i class="fa fa-bell"></i></a>
+            <li class="nav-item liButton">
+              <a class="nav-link bg-light turnBlack" href="#">
+                <div class="col-7 d-flex justify-content-between">
+                  <i class="fa fa-bell mt-1"></i>
+                  <p>Notifications</p>
+                </div>
+              </a>
             </li>
-            <li class="nav-item pt-3">
-              <a class="nav-link active turnBlack" href="./UserLogIn.html">
-                <b>Logout</b> <i class="fa fa-arrow-right-from-bracket"></i></a>
+            <li class="nav-item pt-3 liButton">
+              <a class="nav-link bg-light turnBlack" href="./UserLogIn.html">
+                <div class="col-5 d-flex justify-content-between">
+                  <i class="fa fa-arrow-right-from-bracket mt-1"></i>
+                  <p>Logout</p>
+                </div>
+              </a>
             </li>
           </nav>
         </div>
@@ -73,25 +96,25 @@
 
       <div class="col-9">
         <div class="row pb-5">
-          <div class="col-4">
-            <div class="card testShadow">
-              <div class="card-header bg-danger">
-                <b>Balance</b>
-              </div>
+          <div class="col-12 pt-3">
+            <div class="card">
               <div class="card-body">
-                <p class="card-text">NGN 10,000.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-8">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="card testShadow">
-                  <div class="card-header bg-danger">
-                    <b>Account Number</b>
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">0664532567</p>
+                <div class="row ">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <div class="card-header colourCont rounded-top">
+                        Balance
+                      </div>
+                      <i class="fa-solid fa-naira-sign nSign me-1"></i>
+                      <span class="spanBal" id="dBalance"></span>
+                    </div>
+                    <div>
+                      <div class="card-header colourCont rounded-top">
+                        Account Number
+                      </div>
+                      <i class="fa fa-user-lock nSign me-1"></i>
+                      <span class="spanBal pt-2" id="dAccount"></span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -99,31 +122,17 @@
           </div>
         </div>
 
-        <div class="row p-3 testShadow">
-          <div class="col-12 bg-danger">
+
+        <div class="row p-3 testShadow pt-5">
+          <div class="col-12 colourCont">
             <div class="row pb-3">
               <div class="col-10 pt-3"><b>TRANSACTIONS</b></div>
-              <div class="col-md-1 pt-2 mx-auto">
-                <span class="input-group-append">
-                  <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </span>
-              </div>
-
-              <div class="col-md-1 pt-2 mx-auto">
-                <span class="input-group-append">
-                  <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
-                    <i class="fa fa-filter"></i>
-                  </button>
-                </span>
-              </div>
             </div>
           </div>
 
 
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="myTable">
               <thead>
                 <tr>
                   <th>STATUS</th>
@@ -162,18 +171,27 @@
           </div>
         </div>
 
-
         
 
 
 
-
+        
 
       </div>
     </div>
   </div>
 
-
   </div>
+
+  <script src="../js/Dashboard.js"></script>
+
+  <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
 </body>
 </html>
+
+
+
+  

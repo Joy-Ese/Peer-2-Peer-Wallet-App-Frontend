@@ -18,13 +18,12 @@ signUpForm.addEventListener("submit", function (e) {
   var myHeaders = new Headers();
   var payloadData = sendSignUpData();
   myHeaders.append("Content-Type", "application/json");
-  fetch("https://localhost:7236/api/User/sign-up", {
+  fetch("https://localhost:44378/api/User/sign-up", {
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(payloadData),
   }).then(response => response.text())
   .then(result => console.log(result))
-  .then(() => {window.setTimeout(function(){location.reload()},3000)})
   .catch(error => console.log('error', error));
 });
 
