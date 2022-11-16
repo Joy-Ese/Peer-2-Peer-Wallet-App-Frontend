@@ -1,14 +1,3 @@
-
-// {
-//   "username": "Eseosa",
-//   "firstName": "Joy",
-//   "lastName": "Ihama",
-//   "accountNumber": "0420101316",
-//   "balance": "10000.00"
-// }
-
-
-
 const usersData = JSON.parse(localStorage.getItem("userData")); 
 console.log(usersData);
 

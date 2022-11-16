@@ -1,11 +1,9 @@
-body {
-  font-family: 'Open Sans', sans-serif!important;
-  font: 500 1rem 'Open Sans', sans-serif!important;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
-/* .testShadow {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-} */
+body {
+  font-family: 'Poppins', sans-serif!important;
+  font: 500 1rem 'Poppins', sans-serif!important;
+}
 
 .logo-img {
   border-top-left-radius: .25rem; 
@@ -25,12 +23,36 @@ body {
   color: rgb(99, 98, 98)!important;
   font-size: 13px;
 }
+
 .fontColP {
   font-size: 15px;
+  color: gray;
+}
+
+.fontColT {
+  font-size: 20px;
   color: gray;
 }
 
 .fontCol {
   font-size: 12px;
   color: gray;
+}
+
+.liButton {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.checkBgd {
+  background-color: #df3434dc;
+  padding-top: 12px;
+}
+
+.borderRound {
+  border-right: 1px solid rgb(226, 223, 223);
+  border-left: 1px solid rgb(226, 223, 223);
+  border-top: 1px solid rgb(226, 223, 223);
+  border-bottom: 1px solid rgb(226, 223, 223);
+  padding: 6px;
+  border-radius: 5px;
 }

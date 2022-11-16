@@ -8,6 +8,8 @@ function sendSignUpData() {
   signUpData["email"] = document.getElementById("email").value;
   signUpData["phoneNumber"] = document.getElementById("phoneNumber").value;
   signUpData["address"] = document.getElementById("address").value;
+  signUpData["pin"] = document.getElementById("pin").value;
+  signUpData["confirmPin"] = document.getElementById("conPin").value;
   return signUpData;
 }
 
@@ -18,7 +20,7 @@ signUpForm.addEventListener("submit", function (e) {
   var myHeaders = new Headers();
   var payloadData = sendSignUpData();
   myHeaders.append("Content-Type", "application/json");
-  fetch("https://localhost:44378/api/User/sign-up", {
+  fetch("https://localhost:44378/api/User/SignUp", {
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(payloadData),
@@ -37,6 +39,8 @@ signUpForm.addEventListener("submit", function (e) {
   const email = document.getElementById("email");
   const phonenum = document.getElementById("phoneNumber");
   const addr = document.getElementById("address");
+  const pin = document.getElementById("pin");
+  const conPin = document.getElementById("conPin");
 
   signUpForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -74,6 +78,8 @@ function Validate() {
     const emailVal = email.value.trim();
     const phonenumVal = phonenum.value.trim();
     const addrVal = addr.value.trim();
+    const pinVal = pin.value.trim();
+    const conPinVal = conPin.value.trim();
 
   // First name
   if (firstnameVal === "") {
@@ -151,6 +157,28 @@ function Validate() {
   }
   else {
     setSuccessMsg(addr);
+  }
+
+  //Pin
+  if (pinVal === "") {
+    setErrorMsg(pin, "Pin required");
+  }
+  else if (pinVal.length > 4) {
+    setErrorMsg(pin, "Pin must not be more than 4 digits");
+  }
+  else {
+    setSuccessMsg(pin);
+  }
+
+  //Confirm Pin
+  if (conPinVal === "") {
+    setErrorMsg(conPin, "Pins do not match");
+  }
+  else if (conPinVal != pinVal) {
+    setErrorMsg(conPin, "Pins do not match");
+  }
+  else {
+    setSuccessMsg(conPin);
   }
 
   SuccessMsg(firstnameVal);

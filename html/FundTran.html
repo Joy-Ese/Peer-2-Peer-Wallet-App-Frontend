@@ -4,16 +4,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Globus Wallet | Dashboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Globus Wallet | Fund Transfer</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   
   <link rel="stylesheet" href="../css/FundTran.css">
   <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
-  <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
   <div class="container">
@@ -28,8 +32,8 @@
             
           </div>
           <div class="d-flex">
-            <div class="me-2">Joy .E. Ihama</div>
-            <a href="./user/UserDetail.html">
+            <div class="me-2" id="dUsername">Welcome </div>
+            <a href="#">
               <img src="../images/girl.jpg"
                 class="img-fluid rounded-circle"
                 alt="Profile" width="20" height="20"
@@ -41,21 +45,21 @@
     </nav>
   </div>
 
-  <div class="container bg-light">
+  <div class="container bg-light pb-5">
     <div class="row">
-      <div class="col-3 borderR bg-white mt-1">
+      <div class="col-3 borderR bg-white mt-1 checkBgd">
         <div class="">
           <nav class="nav flex-column nav-pills nav-fill">
-            <li class="nav-item pt-3">
-              <a class="nav-link bg-light turnBlack" href="#">
+            <li class="nav-item pt-3 liButton">
+              <a class="nav-link bg-light turnBlack" href="./Dashboard.html">
                 <div class="col-6 d-flex justify-content-between">
                   <i class="fa fa-house mt-1"></i>
                   <p>Dashboard</p>
                 </div>
               </a>
             </li>
-            <li class="nav-item pt-3">
-              <a class="nav-link bg-light turnBlack" href="./FundTran.html">
+            <li class="nav-item pt-3 liButton">
+              <a class="nav-link bg-light turnBlack" href="#">
                 <div class="col-7 d-flex justify-content-between">
                   <i class="fa fa-money-bill-transfer mt-1"></i>
                   <p>Fund Transfer</p>
@@ -67,7 +71,7 @@
 
         <div class="">
           <nav class="nav flex-column nav-pills nav-fill">
-            <li class="nav-item">
+            <li class="nav-item liButton">
               <a class="nav-link bg-light turnBlack" href="#">
                 <div class="col-7 d-flex justify-content-between">
                   <i class="fa fa-bell mt-1"></i>
@@ -75,7 +79,7 @@
                 </div>
               </a>
             </li>
-            <li class="nav-item pt-3">
+            <li class="nav-item pt-3 liButton">
               <a class="nav-link bg-light turnBlack" href="./UserLogIn.html">
                 <div class="col-5 d-flex justify-content-between">
                   <i class="fa fa-arrow-right-from-bracket mt-1"></i>
@@ -88,62 +92,87 @@
       </div>
 
 
-      <div class="col-9 d-flex justify-content-center pt-3">
-        <div class="col-9 card ">
-
-
-          <div class="col-auto d-flex justify-content-center p-3">
-            <div class="fontColP">
-              REQUEST MONEY
+      <div class="col-9  pt-3">
+        <div class="col">
+          <div class="col-auto d-flex justify-content-center">
+            <div class="fontColP me-2"> 
+              <i class="fa-solid fa-money-bill-trend-up"></i>
             </div>
-            <div class="form-check form-switch ps-5">
-              <input class="form-check-input" type="checkbox" id="form11Example4" checked />
+            <div class="fontColT"> 
+              TRANSFER MONEY
             </div>
-            <div class="fontColP"> 
-              SEND MONEY
-            </div>
-          </div>
-
-
-          <div class="card-header fontColP">
-            PERSONAL DETAILS
-          </div>
-          <div class="card-body">
-            <p class="fontCol">RECIPIENT</p>
-            
-            <form class="">
-              <div class="form-outline mb-4">
-                <input type="text" id="usernameInfo" class="form-control" 
-                  placeholder="Enter recipient's username" />
-              </div>
-
-              <div class="form-outline mb-4">
-                <label class="form-label fontCol" for="userSend">YOU SEND</label>
-                <div class="input-group">
-                  <div class="input-group-text fontCol">NGN</div>
-                  <input type="number" class="form-control" id="userSend" />
-                </div>
-              </div>
-
-              <div class="form-outline mb-4">
-                <label class="form-label fontCol" for="userGet">RECIPIENT GETS</label>
-                <div class="input-group">
-                  <div class="input-group-text fontCol">NGN</div>
-                  <input type="number" class="form-control" id="userGet" />
-                </div>
-              </div>
-
-
-
-
-              
-              <button type="submit" class="btn btn-primary mb-4">Continue</button>
-            </form>
-
           </div>
         </div>
 
+        <div class="col">
+          <div class="col-12 card mt-2">
+            <div class="card-body">
+              <form id="transferForm">
+                <div class="row">
+                  <div class="d-flex justify-content-center">
+                    <div class="col-6 borderR">
+                      <div class="card-header fontColP mb-2">
+                        SOURCE ACCOUNT
+                      </div>
+                      <div>
+                        <p class="fontCol">ACCOUNT NUMBER</p>
+                        <div class="form-outline mb-2">
+                          <div class="me-2 borderRound" id="dAccount"> </div>
+                        </div>
+                        <p class="fontCol">FIRST NAME</p>
+                        <div class="form-outline mb-2">
+                          <div class="me-2 borderRound" id="dFirstName"> </div>
+                        </div>
+                        <p class="fontCol">LAST NAME</p>
+                        <div class="form-outline">
+                          <div class="me-2 borderRound" id="dLastName"> </div>
+                        </div>
+                      </div>
+                    </div>
 
+                    <div class="col-6">
+                      <div class="card-header fontColP mb-2">
+                        DESTINATION ACCOUNT
+                      </div>
+                      <div>
+                        <p class="fontCol">ACCOUNT NUMBER</p>
+                        <div class="input-group mb-2">
+                          <input type="text" id="destinationAcc" class="form-control"/>
+                          <span class="input-group-btn">
+                            <button class="btn btn-outline-primary" id="generateDetails">
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </span>
+                        </div>
+                        <p class="fontCol">FIRST NAME</p>
+                        <div class="form-outline mb-2">
+                          <div class="me-2 borderRound" id="destFirstName"> </div>
+                        </div>
+                        <p class="fontCol">LAST NAME</p>
+                        <div class="form-outline">
+                          <div class="me-2 borderRound" id="destiLastName"> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="form-outline mb-4 pt-3">
+                    <label class="form-label fontCol" for="userSend">AMOUNT</label>
+                    <div class="input-group">
+                      <div class="input-group-text fontCol">NGN</div>
+                      <input type="text" class="form-control" id="userSend" />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary mb-4">
+                    Continue
+                  </button>  
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
 
 
 
@@ -152,19 +181,52 @@
       </div>
 
 
-
-
     </div>
   </div>
 
 
 
 
+  <div class="container checkBgd">
+    <footer class="text-center text-dark ">
+      <div class="container pt-2">
+        <section class="mb-4">
+          <a class="btn btn-outline-light m-1 rounded-circle" href="#!" role="button">
+            <i class="fab fa-facebook-f"></i>
+          </a>
   
-
-
-
-
+          <a class="btn btn-outline-light m-1 rounded-circle" href="#!" role="button">
+            <i class="fab fa-twitter"></i>
+          </a>
+  
+          <a class="btn btn-outline-light m-1 rounded-circle" href="#!" role="button">
+            <i class="fab fa-instagram"></i>
+          </a>
+  
+          <a class="btn btn-outline-light m-1 rounded-circle" href="#!" role="button">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+  
+        </section>
+      </div>
+  
+      <div class="text-center pt-2">
+        © 2020 Copyright <span class="text-dark">Wallet App</span>
+      </div>
+    </footer>
   </div>
+
+
+  <script src="../js/FundTran.js"></script>
+
+  <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
+
+
+
+
+
+
+

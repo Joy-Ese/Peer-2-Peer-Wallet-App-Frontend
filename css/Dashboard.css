@@ -52,3 +52,8 @@ body {
 .colourCont {
   background-color: #df3434;
 }
+
+.checkBgd {
+  background-color: #df3434;
+  padding-top: 12px;
+}
