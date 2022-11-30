@@ -67,7 +67,7 @@
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="password">Password</label>
-                        <input type="password" id="password" class="form-control " />
+                        <input type="password" id="password" class="form-control" pattern="^[a-zA-Z0-9]{6,}$" />
                         <p>Error message</p>
                       </div>
                     </div>
@@ -76,14 +76,14 @@
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="email">Email</label>
-                        <input type="email" id="email" class="form-control " />
+                        <input type="email" id="email" class="form-control" pattern="^[a-zA-Z0-9]+@[a-z]+.[a-z]{2,3}$" />
                         <p>Error message</p>
                       </div>
                     </div>
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="phoneNumber">Phone Number</label>
-                        <input type="text" id="phoneNumber" class="form-control " />
+                        <input type="text" id="phoneNumber" class="form-control" pattern="^[0-9]{11}$" />
                         <p>Error message</p>
                       </div>
                     </div>
@@ -99,14 +99,16 @@
                     <div class="col-md-6 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="pin">Pin</label>
-                        <input type="password" id="pin" class="form-control" />
+                        <input type="password" id="pin" class="form-control" 
+                          maxlength="4" pattern="^[0-9]{4}$" />
                         <p>Error message</p>
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="conPin">Confirm Pin</label>
-                        <input type="password" id="conPin" class="form-control " />
+                        <input type="password" id="conPin" class="form-control" 
+                          maxlength="4" pattern="^[0-9]{4}$" />
                         <p>Error message</p>
                       </div>
                     </div>

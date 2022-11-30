@@ -17,14 +17,16 @@ loginForm.addEventListener("submit", function (e) {
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(payloadData),
-  }).then(response => response.text())
+  }).then(response => {
+    return response.json()
+  })
   .then(response => 
     {
       if (response == null) return console.log("Check Login Again")
       
       const getUserDetails = () => {
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", `Bearer ${response}`);
+        myHeaders.append("Authorization", `Bearer ${response.result}`);
         fetch("https://localhost:44378/api/Dashboard/UserDetails", {
         method: "GET",
         headers: myHeaders,
@@ -36,12 +38,20 @@ loginForm.addEventListener("submit", function (e) {
         })
         .catch(error => console.log('error', error))
       }
+      if(!response.status){
+        return displayError(response.result)
+      }
+
       getUserDetails();
 
     })
   .catch(error => console.log('error', error));
 });
 
+
+function displayError(message){
+  document.getElementById("error_msg").innerHTML = message
+}
 
 
 

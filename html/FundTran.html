@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="../css/FundTran.css">
   <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
   </style>
@@ -144,13 +146,16 @@
                             </button>
                           </span>
                         </div>
-                        <p class="fontCol">FIRST NAME</p>
-                        <div class="form-outline mb-2">
-                          <div class="me-2 borderRound" id="destFirstName"> </div>
-                        </div>
-                        <p class="fontCol">LAST NAME</p>
-                        <div class="form-outline">
-                          <div class="me-2 borderRound" id="destiLastName"> </div>
+                        <p id="accountEnquiryError" class="d-none"></p>
+                        <div class="d-none" id="accountEnquiryDiv">
+                          <p class="fontCol">FIRST NAME</p>
+                          <div class="form-outline mb-2">
+                            <div class="me-2 borderRound" id="destFirstName"> </div>
+                          </div>
+                          <p class="fontCol">LAST NAME</p>
+                          <div class="form-outline">
+                            <div class="me-2 borderRound" id="destiLastName"> </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -165,7 +170,7 @@
                       <input type="text" class="form-control" id="userSend" />
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary mb-4">
+                  <button type="submit" class="btn btn-primary mb-4" id="linkButton">
                     Continue
                   </button>  
                 </div>
@@ -173,19 +178,9 @@
             </div>
           </div>
         </div>
-
-
-
-
-
       </div>
-
-
     </div>
   </div>
-
-
-
 
   <div class="container checkBgd">
     <footer class="text-center text-dark ">
@@ -211,7 +206,9 @@
       </div>
   
       <div class="text-center pt-2">
-        © 2020 Copyright <span class="text-dark">Wallet App</span>
+        Copyright &copy; 
+        <script>document.write(new Date().getFullYear())</script> 
+        <span class="text-dark">Wallet App</span>
       </div>
     </footer>
   </div>
@@ -220,6 +217,8 @@
   <script src="../js/FundTran.js"></script>
 
   <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
 </body>
 </html>

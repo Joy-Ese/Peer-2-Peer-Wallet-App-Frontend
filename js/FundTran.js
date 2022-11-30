@@ -26,7 +26,7 @@ generatedDeets.addEventListener("click", function (e) {
   var myHeaders = new Headers();
   var payloadData = getAccountData();
   myHeaders.append("Content-Type", "application/json");
-  const url = new URL(`https://localhost:44378/api/User/Authenticate`);
+  const url = new URL(`https://localhost:44378/api/User/AccountLookUp`);
   url.searchParams.append("AccountNumber", `${selectedInput.value}`);
   fetch(url, {
     method: "POST",
@@ -37,7 +37,7 @@ generatedDeets.addEventListener("click", function (e) {
     console.log(result);
     setAccountInfo(result);
     var accountsInfo = getAccountInfo();
-    divText(accountsInfo);
+    displayAccountEnquiryDiv(accountsInfo);
   })
   .catch(error => console.log('error', error));
 });
@@ -51,12 +51,17 @@ function getAccountInfo () {
   return accountsInfo;
 }
 
-const destiFirstName = document.getElementById("destFirstName");
-const destiLastName = document.getElementById("destiLastName");
-
-function divText(accountsInfo) {
-  destiFirstName.innerText = accountsInfo.firstName;
-  destiLastName.innerText = accountsInfo.lastName;
+function displayAccountEnquiryDiv(accountsInfo) {
+  document.getElementById("accountEnquiryDiv").classList.add("d-none");
+  document.getElementById("accountEnquiryError").classList.add("d-none");
+  if (accountsInfo.status) {
+    document.getElementById("accountEnquiryDiv").classList.remove("d-none");
+    document.getElementById("destFirstName").innerText = accountsInfo.firstName;
+    document.getElementById("destiLastName").innerText = accountsInfo.lastName;
+  } else {
+    document.getElementById("accountEnquiryError").classList.remove("d-none");
+    document.getElementById("accountEnquiryError").innerHTML = "Account Not Found";
+  }
 }
 
 
@@ -78,7 +83,24 @@ transferForm.addEventListener("submit", function (e) {
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(transferData),
-  }).then(response => response.text())
-  .then(result => console.log(result))
+  }).then(response => response.json())
+  .then(result => {
+    console.log(result)
+  })
   .catch(error => console.log('error', error));
 });
+
+
+$(document).ready(function() {
+
+$('#linkButton').click(function() {
+    toastr.success("Transfer Successful");
+    setTimeout(
+      function () {
+        window.location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);
+      },2500
+    );
+  });
+
+});
+
