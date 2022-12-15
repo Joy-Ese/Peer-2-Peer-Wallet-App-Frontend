@@ -4,27 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Globus Wallet | Dashboard</title>
+  <title>Globus Wallet | Fund Account</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  
-  <link rel="stylesheet" href="../css/Dashboard.css">
+
+  <link rel="stylesheet" href="../css/FundAcct.css">
   <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
-
-  <link rel="stylesheet" type="text/css" href="../DataTables/datatables.min.css">
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.2.0/css/dataTables.dateTime.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap5.min.css"/>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/datetime/1.2.0/js/dataTables.dateTime.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap5.js"></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
@@ -33,14 +19,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
-<body onload="startCountdown()">
+<body>
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light borderB bg-white">
       <div class="container">
         <div class="navbar-brand">
-          <img src="../images/Logo-.png" alt="Sample photo" class="img-fluid logo-img"/>
+          <img src="../images/Logo-.png" alt="Logo" class="img-fluid logo-img"/>
         </div>
-  
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="navbar-nav me-auto mb-2 mb-lg-0">
             
@@ -65,7 +50,7 @@
         <div class="">
           <nav class="nav flex-column nav-pills nav-fill">
             <li class="nav-item pt-3 liButton">
-              <a class="nav-link bg-light turnBlack" href="#">
+              <a class="nav-link bg-light turnBlack" href="./Dashboard.html">
                 <div class="col-6 d-flex justify-content-between">
                   <i class="fa fa-house mt-1"></i>
                   <p>Dashboard</p>
@@ -80,6 +65,7 @@
                 </div>
               </a>
             </li>
+
             <li class="nav-item liButton">
               <a class="nav-link bg-light turnBlack" href="./FundAcct.html">
                 <div class="col-7 d-flex justify-content-between">
@@ -113,54 +99,55 @@
         </div>
       </div>
 
-
       <div class="col-9">
-        <div class="row pb-5">
-          <div class="col-12 pt-3">
-            <div class="card">
-              <div class="card-body">
-                <div class="row ">
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <div class="card-header colourCont rounded-top">
-                        Balance
-                      </div>
-                      <i class="fa-solid fa-naira-sign nSign me-1"></i>
-                      <span class="spanBal" id="userBalance"></span>
-                    </div>
-                    <div>
-                      <div class="card-header colourCont rounded-top">
-                        Account Number
-                      </div>
-                      <i class="fa fa-user-lock nSign me-1"></i>
-                      <span class="spanBal pt-2" id="dAccount"></span>
-                    </div>
+        <div>
+          <form>
+            <div class="row pb-5">
+              <h6 class="pt-4 fontColT">ADD FUNDS</h6>
+              <p class="fontColP">Select payment option to add funds to your Wallet balance.</p>
+              <p class="fontColP">Deposit Amount</p>
+              <div class="col-9 d-flex">
+                <div class="col-2">
+                  <button type="button" class="btn btn-outline-secondary">
+                    <i class="fa-solid fa-naira-sign nSign me-1"></i>1000
+                  </button>
+                </div>
+                <div class="col-3">
+                  <button type="button" class="btn btn-outline-secondary">
+                    <i class="fa-solid fa-naira-sign nSign me-1"></i>5000
+                  </button>
+                </div>
+                <div class="col-4">
+                  <input type="text" class="btn btn-outline-secondary" placeholder="Enter Amount"/>
+                </div>
+              </div>
+              
+            </div>
+
+
+            <div class="row pb-5">
+              <div class="col-6 d-flex justify-content-between">
+                <div class="input-group mb-3 col-5">
+                  <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    <img src="../images/paypal.png" class="imgPayMethod" alt="">
+                  </div>
+                </div>
+                <div class="input-group mb-3 col-5">
+                  <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    <img src="../images/atm.png" class="imgPayMethod" alt="">
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
 
-        <div class="row p-3 testShadow pt-5">
-          <div class="col-12 colourCont">
-            <div class="row pb-3">
-              <div class="col-10 mt-2"><b>TRANSACTIONS</b></div>
+            <div class="row">
+              <button class="btn btn-secondary ms-2 col-11" type="submit" 
+              value="Submit">SELECT PAYMENT METHOD AND CONTINUE</button>
             </div>
-          </div>
-          <div class="table-responsive mt-3">
-            <table id="example" class="table table-striped" style="width:100%">
-              <thead>
-                <tr>
-                  <th>AMOUNT</th>
-                  <th>DESTINATION ACCOUNT</th>
-                  <th>DATE</th>
-                </tr>
-              </thead>
-              <tbody id="data"></tbody>
-            </table>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -174,17 +161,22 @@
           <a class="btn btn-outline-light m-1 rounded-circle" href="#!" role="button">
             <i class="fab fa-facebook-f"></i>
           </a>
+  
           <a class="btn btn-outline-light m-1 rounded-circle" href="#!" role="button">
             <i class="fab fa-twitter"></i>
           </a>
+  
           <a class="btn btn-outline-light m-1 rounded-circle" href="#!" role="button">
             <i class="fab fa-instagram"></i>
           </a>
+  
           <a class="btn btn-outline-light m-1 rounded-circle" href="#!" role="button">
             <i class="fab fa-linkedin-in"></i>
           </a>
+  
         </section>
       </div>
+  
       <div class="text-center pt-2">
         Copyright &copy; 
         <script>document.write(new Date().getFullYear())</script> 
@@ -193,15 +185,11 @@
     </footer>
   </div>
 
-  <script src="../js/Dashboard.js"></script>
+
+
+  <!-- <script src="../js/FundTran.js"></script> -->
 
   <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
 
-  <script type="text/javascript" src="../DataTables/datatables.min.js"></script>
-
 </body>
 </html>
-
-
-
-  

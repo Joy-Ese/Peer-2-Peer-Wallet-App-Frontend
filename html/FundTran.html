@@ -14,6 +14,9 @@
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
   </style>
@@ -21,7 +24,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
-<body>
+<body onload="startCountdown()">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light borderB bg-white">
       <div class="container">
@@ -35,7 +38,7 @@
           </div>
           <div class="d-flex">
             <div class="me-2" id="dUsername">Welcome </div>
-            <a href="#">
+            <a href="./UserProfile.html">
               <img src="../images/girl.jpg"
                 class="img-fluid rounded-circle"
                 alt="Profile" width="20" height="20"
@@ -68,6 +71,14 @@
                 </div>
               </a>
             </li>
+            <li class="nav-item liButton">
+              <a class="nav-link bg-light turnBlack" href="./FundAcct.html">
+                <div class="col-7 d-flex justify-content-between">
+                  <i class="fa fa-credit-card mt-1"></i>
+                  <p>Fund Account</p>
+                </div>
+              </a>
+            </li>
           </nav>
         </div>
 
@@ -82,7 +93,7 @@
               </a>
             </li>
             <li class="nav-item pt-3 liButton">
-              <a class="nav-link bg-light turnBlack" href="./UserLogIn.html">
+              <a class="nav-link bg-light turnBlack" href="#" id="btnLogoff">
                 <div class="col-5 d-flex justify-content-between">
                   <i class="fa fa-arrow-right-from-bracket mt-1"></i>
                   <p>Logout</p>
@@ -110,6 +121,7 @@
           <div class="col-12 card mt-2">
             <div class="card-body">
               <form id="transferForm">
+                <div ></div>
                 <div class="row">
                   <div class="d-flex justify-content-center">
                     <div class="col-6 borderR">
@@ -146,7 +158,7 @@
                             </button>
                           </span>
                         </div>
-                        <p id="accountEnquiryError" class="d-none"></p>
+                        <p id="accountEnquiryError" class="d-none accountSearchErrorMsg p-2"></p>
                         <div class="d-none" id="accountEnquiryDiv">
                           <p class="fontCol">FIRST NAME</p>
                           <div class="form-outline mb-2">
@@ -170,9 +182,39 @@
                       <input type="text" class="form-control" id="userSend" />
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary mb-4" id="linkButton">
+                  <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Continue
                   </button>  
+                </div>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" 
+                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirm Transaction</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row">
+                          <p id="error_msg" class="giveStyling p-2"></p>
+                          <h6>Please input pin to confirm your transfer:</h6>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <div class="form-outline">
+                              <label class="form-label mt-2" for="pin">Pin</label>
+                              <input type="password" id="pin" class="form-control" 
+                                maxlength="4" pattern="^[0-9]{4}$" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="linkButton">Send Money</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>
@@ -217,6 +259,8 @@
   <script src="../js/FundTran.js"></script>
 
   <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 

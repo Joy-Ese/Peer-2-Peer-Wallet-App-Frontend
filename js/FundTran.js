@@ -13,6 +13,8 @@ dLast.insertAdjacentText("beforeend", usersData.lastName);
 
 
 //GET DETAILS ON ACCOUNT NUMBER POST
+const getToken = localStorage.getItem("jwt");
+
 function getAccountData() {
   var accountData = {};
   accountData["AccountNumber"] = document.getElementById("destinationAcc").value;
@@ -25,8 +27,8 @@ generatedDeets.addEventListener("click", function (e) {
   var selectedInput = document.getElementById("destinationAcc");
   var myHeaders = new Headers();
   var payloadData = getAccountData();
-  myHeaders.append("Content-Type", "application/json");
-  const url = new URL(`https://localhost:44378/api/User/AccountLookUp`);
+  myHeaders.append("Authorization", `Bearer ${getToken}`);
+  const url = new URL(`https://localhost:44378/api/Account/AccountLookUp?`);
   url.searchParams.append("AccountNumber", `${selectedInput.value}`);
   fetch(url, {
     method: "POST",
@@ -76,23 +78,33 @@ transferForm.addEventListener("submit", function (e) {
   transferData["sourceAccount"] = document.getElementById("dAccount").innerText;
   transferData["destinationAccount"] = document.getElementById("destinationAcc").value;
   transferData["amount"] = document.getElementById("userSend").value;
+  transferData["pin"] = document.getElementById("pin").value;
 
   var myHeaders = new Headers();
+  myHeaders.append("Authorization", `Bearer ${getToken}`);
   myHeaders.append("Content-Type", "application/json");
   fetch(`https://localhost:44378/api/Transaction/CreateTransfer`, {
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(transferData),
   }).then(response => response.json())
-  .then(result => {
-    console.log(result)
+  .then(response => {
+    console.log(response);
+
+    if(!response.status){
+      return displayError(response.responseMessage);
+    }
   })
   .catch(error => console.log('error', error));
 });
 
 
-$(document).ready(function() {
+function displayError(message){
+  document.getElementById("error_msg").innerHTML = message
+}
 
+
+$(document).ready(function() {
 $('#linkButton').click(function() {
     toastr.success("Transfer Successful");
     setTimeout(
@@ -101,6 +113,49 @@ $('#linkButton').click(function() {
       },2500
     );
   });
-
 });
+
+
+// LogOut from local storage
+$('#btnLogoff').click(function () {
+  window.localStorage.clear();
+  window.location.href = 'http://127.0.0.1:5500/html/UserLogin.html';
+});
+
+// Auto Logout after inactivity
+let warningTimeout = 90000;
+var timoutNow = 100000;
+let warningTimer;
+var timeoutTimer;
+let logoutUrl = "http://127.0.0.1:5500/html/UserLogin.html";
+
+function startTimer() {
+  warningTimer = window.setTimeout(idleWarning, warningTimeout);
+  timeoutTimer = window.setTimeout(idleLogout, timoutNow);
+}
+
+function resetTimer() {
+  window.clearTimeout(warningTimer);
+  window.clearTimeout(timeoutTimer);
+  startTimer();
+}
+
+function idleWarning() {
+  alert("Warning, you will be logged out due to inactivity!!!");
+}
+
+function idleLogout() {
+  window.localStorage.clear();
+  window.location.href = 'http://127.0.0.1:5500/html/UserLogin.html';
+}
+
+function startCountdown() {
+  window.addEventListener("mousemove", resetTimer);
+  window.addEventListener("mousedown", resetTimer);
+  window.addEventListener("keypress", resetTimer);
+  window.addEventListener("touchmove", resetTimer);
+  window.addEventListener("onscroll", resetTimer);
+  window.addEventListener("wheel", resetTimer);
+  startTimer();
+}
 

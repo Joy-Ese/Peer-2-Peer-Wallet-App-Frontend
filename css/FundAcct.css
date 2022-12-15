@@ -19,9 +19,25 @@ body {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+.liButton {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
 .turnBlack {
   color: rgb(99, 98, 98)!important;
   font-size: 13px;
+}
+
+.checkBgd {
+  background-color: #df3434dc;
+  padding-top: 12px;
+}
+
+.imgPayMethod {
+  height: 20vh;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .fontColP {
@@ -34,33 +50,7 @@ body {
   color: gray;
 }
 
-.fontCol {
-  font-size: 12px;
-  color: gray;
-}
-
-.liButton {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-}
-
-.checkBgd {
-  background-color: #df3434dc;
-  padding-top: 12px;
-}
-
-.borderRound {
-  border-right: 1px solid rgb(226, 223, 223);
-  border-left: 1px solid rgb(226, 223, 223);
-  border-top: 1px solid rgb(226, 223, 223);
-  border-bottom: 1px solid rgb(226, 223, 223);
-  padding: 6px;
-  border-radius: 5px;
-}
-
-.accountSearchErrorMsg {
-  color: #df3434;
-}
-
-.giveStyling {
-  color: #df3434;
+.formDIV {
+  height: 50px;
+  height: 50px;
 }

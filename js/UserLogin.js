@@ -23,7 +23,10 @@ loginForm.addEventListener("submit", function (e) {
   .then(response => 
     {
       if (response == null) return console.log("Check Login Again")
-      
+      console.log(response.result);
+
+      localStorage.setItem("jwt", response.result);
+
       const getUserDetails = () => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${response.result}`);

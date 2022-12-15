@@ -9,12 +9,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   
-  <link rel="stylesheet" href="../css/UserProfile.css">
-  <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/UserProfile.css">
+    <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
   </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 <body>
@@ -64,6 +66,15 @@
                 </div>
               </a>
             </li>
+
+            <li class="nav-item liButton">
+              <a class="nav-link bg-light turnBlack" href="./FundAcct.html">
+                <div class="col-7 d-flex justify-content-between">
+                  <i class="fa fa-credit-card mt-1"></i>
+                  <p>Fund Account</p>
+                </div>
+              </a>
+            </li>
           </nav>
         </div>
 
@@ -78,7 +89,7 @@
               </a>
             </li>
             <li class="nav-item pt-3 liButton">
-              <a class="nav-link bg-light turnBlack" href="./UserLogIn.html">
+              <a class="nav-link bg-light turnBlack" href="#" id="btnLogoff">
                 <div class="col-5 d-flex justify-content-between">
                   <i class="fa fa-arrow-right-from-bracket mt-1"></i>
                   <p>Logout</p>
@@ -92,75 +103,66 @@
       <div class="col-9">
         <div>
           <form>
-            <div class="row mb-3">
-              <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
-            </div>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <div class="form-outline">
                   <label class="form-label mt-2" for="firstName">First Name</label>
-                  <input type="text" id="firstName" class="form-control " />
+                  <input type="text" id="firstName" class="form-control" placeholder="FirstName" readonly>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <div class="form-outline">
                   <label class="form-label mt-2" for="lastName">Last Name</label>
-                  <input type="text" id="lastName" class="form-control " />
+                  <input type="text" id="lastName" class="form-control" placeholder="LastName" readonly>
                 </div>
               </div>
             </div>
-            <div class="form-row">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="First name">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="form-outline">
+                  <label class="form-label mt-2" for="userName">Username</label>
+                  <input type="text" id="userName" class="form-control" placeholder="FirstName" readonly>
+                </div>
               </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Last name">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+              <div class="col-md-6 mb-3">
+                <div class="form-outline">
+                  <label class="form-label mt-2" for="phoneNumber">Phone Number</label>
+                  <input type="text" id="phoneNumber" class="form-control" placeholder="LastName" readonly>
+                </div>
               </div>
             </div>
-            <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-              <label for="inputAddress2">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <div class="form-outline">
+                  <label class="form-label mt-2" for="email">email@email.com</label>
+                  <input type="email" id="email" class="form-control" placeholder="FirstName" readonly>
+                </div>
               </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+              <div class="col-md-12 mb-3">
+                <div class="form-outline">
+                  <label class="form-label mt-2" for="address">Address</label>
+                  <input type="text" id="address" class="form-control" placeholder="LastName" readonly>
+                </div>
               </div>
             </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="form-outline">
+                  <label class="form-label mt-2" for="pin">Pin</label>
+                  <input type="password" id="pin" class="form-control" 
+                    maxlength="4" placeholder="Old Pin" readonly>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="form-outline">
+                  <label class="form-label mt-2" for="newPin">New Pin</label>
+                  <input type="password" id="newPin" class="form-control"
+                  maxlength="4" pattern="^[0-9]{4}$" placeholder="New Pin">
+                </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+
+            <button class="btn btn-primary ms-2" type="submit" value="Submit">Save Changes</button>
           </form>
         </div>
       </div>
@@ -198,6 +200,10 @@
       </div>
     </footer>
   </div>
+
+  <!-- <script src="../js/FundTran.js"></script> -->
+
+  <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

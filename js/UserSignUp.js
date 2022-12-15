@@ -1,4 +1,4 @@
-// Register (sin-up) API
+// Register (sign-up) API
 function sendSignUpData() {
   var signUpData = {};
   signUpData["firstName"] = document.getElementById("firstName").value;
