@@ -74,6 +74,8 @@ const transferForm = document.getElementById("transferForm");
 transferForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
+  displayError("");
+
   var transferData = {};
   transferData["sourceAccount"] = document.getElementById("dAccount").innerText;
   transferData["destinationAccount"] = document.getElementById("destinationAcc").value;
@@ -94,8 +96,18 @@ transferForm.addEventListener("submit", function (e) {
     if(!response.status){
       return displayError(response.responseMessage);
     }
+
+    toastr.success("Transfer Successful");
+    setTimeout(
+      function () {
+        window.location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);
+      },3500
+    );
+    
   })
-  .catch(error => console.log('error', error));
+  .catch(({response}) => {
+    console.log(response);
+  });
 });
 
 
@@ -103,17 +115,16 @@ function displayError(message){
   document.getElementById("error_msg").innerHTML = message
 }
 
-
-$(document).ready(function() {
-$('#linkButton').click(function() {
-    toastr.success("Transfer Successful");
-    setTimeout(
-      function () {
-        window.location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);
-      },2500
-    );
-  });
-});
+// $(document).ready(function() {
+// $('#linkButton').click(function() {
+//     toastr.success("Transfer Successful");
+//     setTimeout(
+//       function () {
+//         window.location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);
+//       },3500
+//     );
+//   });
+// });
 
 
 // LogOut from local storage

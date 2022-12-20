@@ -20,7 +20,7 @@ signUpForm.addEventListener("submit", function (e) {
   var myHeaders = new Headers();
   var payloadData = sendSignUpData();
   myHeaders.append("Content-Type", "application/json");
-  fetch("https://localhost:44378/api/User/SignUp", {
+  fetch("https://localhost:44378/api/Auth/SignUp", {
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(payloadData),

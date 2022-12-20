@@ -13,7 +13,7 @@ loginForm.addEventListener("submit", function (e) {
   var myHeaders = new Headers();
   var payloadData = sendLoginData();
   myHeaders.append("Content-Type", "application/json");
-  fetch("https://localhost:44378/api/User/Login", {
+  fetch("https://localhost:44378/api/Auth/Login", {
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(payloadData),
