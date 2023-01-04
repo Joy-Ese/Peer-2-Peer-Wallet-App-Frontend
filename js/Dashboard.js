@@ -7,6 +7,20 @@ const dAcc = document.getElementById("dAccount");
 dUser.insertAdjacentText("beforeend", usersData.username);
 dAcc.insertAdjacentText("beforeend", usersData.accountNumber);
 
+// FirstName and LastName Avatar
+
+
+
+
+
+
+
+
+
+
+
+
+
 // GET Account Balance From Database
 const getToken = localStorage.getItem("jwt");
 
@@ -58,6 +72,7 @@ var requestOptions = {
 $(document).ready(function () {
   $('#example').DataTable();
 });
+
 
 // LogOut from local storage
 $('#btnLogoff').click(function () {

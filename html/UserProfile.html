@@ -9,8 +9,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   
-    <link rel="stylesheet" href="../css/UserProfile.css">
-    <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/UserProfile.css">
+  <link rel="shortcut icon" href="../images/Logo-.png" type="image/x-icon">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
@@ -19,7 +24,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
-<body>
+<body onload="startCountdown()">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light borderB bg-white">
       <div class="container">
@@ -102,64 +107,70 @@
 
       <div class="col-9">
         <div>
-          <form>
+          <div class="row">
+            <h4 class="col mb-3 pt-3">
+              Update Your Profile
+            </h4>
+          </div>
+          <form id="changePinForm">
             <div class="row">
               <div class="col-md-6 mb-3">
+                <p class="fontCol">FIRST NAME</p>
                 <div class="form-outline">
-                  <label class="form-label mt-2" for="firstName">First Name</label>
-                  <input type="text" id="firstName" class="form-control" placeholder="FirstName" readonly>
+                  <div class="me-2 borderRound" id="firstName"> </div>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
+                <p class="fontCol">LAST NAME</p>
                 <div class="form-outline">
-                  <label class="form-label mt-2" for="lastName">Last Name</label>
-                  <input type="text" id="lastName" class="form-control" placeholder="LastName" readonly>
+                  <div class="me-2 borderRound" id="lastName"> </div>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
+                <p class="fontCol">USERNAME</p>
                 <div class="form-outline">
-                  <label class="form-label mt-2" for="userName">Username</label>
-                  <input type="text" id="userName" class="form-control" placeholder="FirstName" readonly>
+                  <div class="me-2 borderRound" id="userName"> </div>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
+                <p class="fontCol">PHONE NUMBER</p>
                 <div class="form-outline">
-                  <label class="form-label mt-2" for="phoneNumber">Phone Number</label>
-                  <input type="text" id="phoneNumber" class="form-control" placeholder="LastName" readonly>
+                  <div class="me-2 borderRound" id="phoneNumber"> </div>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12 mb-3">
+                <p class="fontCol">EMAIL</p>
                 <div class="form-outline">
-                  <label class="form-label mt-2" for="email">email@email.com</label>
-                  <input type="email" id="email" class="form-control" placeholder="FirstName" readonly>
+                  <div class="me-2 borderRound" id="email"> </div>
                 </div>
               </div>
               <div class="col-md-12 mb-3">
+                <p class="fontCol">ADDRESS</p>
                 <div class="form-outline">
-                  <label class="form-label mt-2" for="address">Address</label>
-                  <input type="text" id="address" class="form-control" placeholder="LastName" readonly>
+                  <div class="me-2 borderRound" id="address"> </div>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <div class="form-outline">
-                  <label class="form-label mt-2" for="pin">Pin</label>
-                  <input type="password" id="pin" class="form-control" 
-                    maxlength="4" placeholder="Old Pin" readonly>
+                  <label class="form-label mt-2" for="oldPin">Old Pin</label>
+                  <input type="password" id="oldPin" class="form-control" 
+                    maxlength="4" pattern="^[0-9]{4}$" placeholder="Old Pin" />
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <div class="form-outline">
                   <label class="form-label mt-2" for="newPin">New Pin</label>
                   <input type="password" id="newPin" class="form-control"
-                  maxlength="4" pattern="^[0-9]{4}$" placeholder="New Pin">
+                  maxlength="4" pattern="^[0-9]{4}$" placeholder="New Pin" />
                 </div>
               </div>
+              <p id="error_msg" class="giveStyling pe-3"></p> 
             </div>
 
             <button class="btn btn-primary ms-2" type="submit" value="Submit">Save Changes</button>
@@ -201,9 +212,13 @@
     </footer>
   </div>
 
-  <!-- <script src="../js/FundTran.js"></script> -->
+  <script src="../js//UserProfile.js"></script>
 
   <script src="https://kit.fontawesome.com/de4f84b1fe.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
 </body>
 </html>

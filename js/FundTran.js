@@ -115,17 +115,6 @@ function displayError(message){
   document.getElementById("error_msg").innerHTML = message
 }
 
-// $(document).ready(function() {
-// $('#linkButton').click(function() {
-//     toastr.success("Transfer Successful");
-//     setTimeout(
-//       function () {
-//         window.location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);
-//       },3500
-//     );
-//   });
-// });
-
 
 // LogOut from local storage
 $('#btnLogoff').click(function () {

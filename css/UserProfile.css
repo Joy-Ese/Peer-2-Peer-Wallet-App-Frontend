@@ -32,3 +32,21 @@ body {
   background-color: #df3434dc;
   padding-top: 12px;
 }
+
+.borderRound {
+  border-right: 1px solid rgb(226, 223, 223);
+  border-left: 1px solid rgb(226, 223, 223);
+  border-top: 1px solid rgb(226, 223, 223);
+  border-bottom: 1px solid rgb(226, 223, 223);
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.fontCol {
+  font-size: 12px;
+  color: gray;
+}
+
+.giveStyling {
+  color: #df3434;
+}
