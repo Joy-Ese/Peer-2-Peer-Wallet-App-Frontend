@@ -1,3 +1,5 @@
+const baseUrl = "http://localhost:7236";
+
 const usersData = JSON.parse(localStorage.getItem("userData")); 
 console.log(usersData);
 
@@ -28,7 +30,7 @@ generatedDeets.addEventListener("click", function (e) {
   var myHeaders = new Headers();
   var payloadData = getAccountData();
   myHeaders.append("Authorization", `Bearer ${getToken}`);
-  const url = new URL(`https://localhost:44378/api/Account/AccountLookUp?`);
+  const url = new URL(`${baseUrl}/api/Account/AccountLookUp?`); 
   url.searchParams.append("AccountNumber", `${selectedInput.value}`);
   fetch(url, {
     method: "POST",
@@ -85,7 +87,7 @@ transferForm.addEventListener("submit", function (e) {
   var myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${getToken}`);
   myHeaders.append("Content-Type", "application/json");
-  fetch(`https://localhost:44378/api/Transaction/CreateTransfer`, {
+  fetch(`${baseUrl}/api/Transaction/CreateTransfer`, { 
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(transferData),

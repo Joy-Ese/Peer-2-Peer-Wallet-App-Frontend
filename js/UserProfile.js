@@ -1,3 +1,5 @@
+const baseUrl = "http://localhost:7236";
+
 // GET user details to display in form
 const getToken = localStorage.getItem("jwt");
 
@@ -8,7 +10,7 @@ var requestOptions = {
   method: 'GET',
   headers: myHeaders,
 };
-  fetch('https://localhost:44378/api/Dashboard/GetUserProfile', 
+  fetch(`${baseUrl}/api/Dashboard/GetUserProfile`, 
   requestOptions
   ).then(response => response.json())
   .then(data => {
@@ -42,7 +44,7 @@ changePinForm.addEventListener("submit", function (e) {
   var payloadData = sendPinData();
   myHeaders.append("Authorization", `Bearer ${getToken}`);
   myHeaders.append("Content-Type", "application/json");
-  fetch("https://localhost:44378/api/Dashboard/UpdateUserPin", {
+  fetch(`${baseUrl}/api/Dashboard/UpdateUserPin`, { 
     method: "PUT",
     headers: myHeaders,
     body: JSON.stringify(payloadData),

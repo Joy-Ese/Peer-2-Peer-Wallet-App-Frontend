@@ -1,3 +1,5 @@
+const baseUrl = "http://localhost:7236";
+
 const usersData = JSON.parse(localStorage.getItem("userData")); 
 // console.log(usersData);
 
@@ -10,17 +12,6 @@ dAcc.insertAdjacentText("beforeend", usersData.accountNumber);
 // FirstName and LastName Avatar
 
 
-
-
-
-
-
-
-
-
-
-
-
 // GET Account Balance From Database
 const getToken = localStorage.getItem("jwt");
 
@@ -31,7 +22,7 @@ var requestOptions = {
   method: 'GET',
   headers: myHeaders,
 };
-  fetch('https://localhost:44378/api/Dashboard/AccountBalance', 
+  fetch(`${baseUrl}/api/Dashboard/AccountBalance`, 
   requestOptions
   ).then(response => response.json())
   .then(dataBal => {
@@ -47,7 +38,7 @@ var requestOptions = {
   method: 'GET',
   headers: myHeaders,
 };
-  fetch(`https://localhost:44378/api/Transaction/TransactionDetails?AccountNumber=${usersData.accountNumber}`, requestOptions
+  fetch(`${baseUrl}/api/Transaction/TransactionDetails?AccountNumber=${usersData.accountNumber}`, requestOptions
   ).then(
     response => 
     { 

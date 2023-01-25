@@ -1,3 +1,5 @@
+const baseUrl = "http://localhost:7236";
+
 // Register (sign-up) API
 function sendSignUpData() {
   var signUpData = {};
@@ -20,7 +22,7 @@ signUpForm.addEventListener("submit", function (e) {
   var myHeaders = new Headers();
   var payloadData = sendSignUpData();
   myHeaders.append("Content-Type", "application/json");
-  fetch("https://localhost:44378/api/Auth/SignUp", {
+  fetch(`${baseUrl}/api/Auth/SignUp`, { 
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(payloadData),

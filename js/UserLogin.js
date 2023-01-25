@@ -1,3 +1,5 @@
+const baseUrl = "http://localhost:7236";
+
 // Login API
 function sendLoginData() {
   var loginData = {};
@@ -13,7 +15,7 @@ loginForm.addEventListener("submit", function (e) {
   var myHeaders = new Headers();
   var payloadData = sendLoginData();
   myHeaders.append("Content-Type", "application/json");
-  fetch("https://localhost:44378/api/Auth/Login", {
+  fetch(`${baseUrl}/api/Auth/Login`, {
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(payloadData),
@@ -30,7 +32,7 @@ loginForm.addEventListener("submit", function (e) {
       const getUserDetails = () => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${response.result}`);
-        fetch("https://localhost:44378/api/Dashboard/UserDetails", {
+        fetch(`${baseUrl}/api/Dashboard/UserDetails`, {
         method: "GET",
         headers: myHeaders,
         })
