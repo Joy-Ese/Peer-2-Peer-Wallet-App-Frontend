@@ -66,4 +66,12 @@ function redirectToDashboard(reload) {
 }
 
 
+const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#passwordLogin');
+
+  togglePassword.addEventListener('click', function (e) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('fa-sharp fa-solid fa-eye-slash');
+});
 

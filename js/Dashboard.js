@@ -38,7 +38,7 @@ var requestOptions = {
   method: 'GET',
   headers: myHeaders,
 };
-  fetch(`${baseUrl}/api/Transaction/TransactionDetails?AccountNumber=${usersData.accountNumber}`, requestOptions
+  fetch(`${baseUrl}/api/Transaction/TransactionDetails`, requestOptions
   ).then(
     response => 
     { 

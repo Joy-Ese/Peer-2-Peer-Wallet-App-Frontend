@@ -25,7 +25,7 @@ fundAcctForm.addEventListener("submit", function (e) {
   var payloadData = sendAmountData();
   myHeaders.append("Authorization", `Bearer ${getToken}`);
   myHeaders.append("Content-Type", "application/json");
-  fetch(`${baseUrl}/api/Paystack/InitializePaystackPayment`, {
+  fetch(`${baseUrl}/api/Payment/InitializePaystackPayment`, {
     method: "POST", 
     headers: myHeaders,
     body: JSON.stringify(payloadData),
@@ -34,7 +34,6 @@ fundAcctForm.addEventListener("submit", function (e) {
   .then(result => {
     console.log(result);
 
-// Mr Dara said always check for the negatives. Correct it on tuesday!!
     if (!result.status) {
       return displayError(result.message);
     }
@@ -44,7 +43,7 @@ fundAcctForm.addEventListener("submit", function (e) {
     setTimeout(
       function () {
         window.location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);
-      },2000
+      },80000
     );
   })
   .catch(error => console.log('error', error));
