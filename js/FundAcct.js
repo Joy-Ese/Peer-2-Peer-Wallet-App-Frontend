@@ -9,6 +9,7 @@ const dUser = document.getElementById("dUsername");
 
 dUser.insertAdjacentText("beforeend", usersData.username);
 
+
 // POST paystack initialize transaction
 function sendAmountData() {
   var amountData = {};
@@ -43,7 +44,7 @@ fundAcctForm.addEventListener("submit", function (e) {
     setTimeout(
       function () {
         window.location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);
-      },80000
+      },50000
     );
   })
   .catch(error => console.log('error', error));

@@ -27,9 +27,22 @@ signUpForm.addEventListener("submit", function (e) {
     headers: myHeaders,
     body: JSON.stringify(payloadData),
   }).then(response => response.text())
-  .then(result => console.log(result))
+  .then(result => {
+    console.log(result)
+    
+    if(!result.status){
+      return displayError(result.result)
+    }
+  })
   .catch(error => console.log('error', error));
 });
+
+
+function displayError(message){
+  document.getElementById("error_msg").innerHTML = message
+}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Validate Sign Up Form

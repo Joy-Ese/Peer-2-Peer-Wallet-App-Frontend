@@ -33,7 +33,7 @@ var requestOptions = {
 
 
 
-// Populate Transaction Table HttpGet
+// Populate Debit Transaction Table HttpGet
 var requestOptions = {
   method: 'GET',
   headers: myHeaders,
@@ -48,11 +48,40 @@ var requestOptions = {
           data.map((a) => {
             transactionList += "<tr>";
             transactionList += "<td>" + a.amount + "</td>";
+            transactionList += "<td>" + a.recepient + "</td>";
             transactionList += "<td>" + a.destinationAccount + "</td>";
+            transactionList += "<td>" + a.status + "</td>";
             transactionList += `<td> ${new Date(a.date).toLocaleString()} </td>`;
             transactionList += "</tr>"
           });
           document.getElementById("data").innerHTML += transactionList;
+        }
+      )
+    }
+  );
+
+// Populate Credit Transaction Table HttpGet
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+};
+  fetch(`${baseUrl}/api/Transaction/TransactionCreditDetails`, requestOptions
+  ).then(
+    response => 
+    { 
+      response.json().then(
+        data => {
+          var transactionList = "";
+          data.map((a) => {
+            transactionList += "<tr>";
+            transactionList += "<td>" + a.amount + "</td>";
+            transactionList += "<td>" + a.sender + "</td>";
+            transactionList += "<td>" + a.senderAccount + "</td>";
+            transactionList += "<td>" + a.status + "</td>";
+            transactionList += `<td> ${new Date(a.date).toLocaleString()} </td>`;
+            transactionList += "</tr>"
+          });
+          document.getElementById("dataCredit").innerHTML += transactionList;
         }
       )
     }
@@ -63,6 +92,12 @@ var requestOptions = {
 $(document).ready(function () {
   $('#example').DataTable();
 });
+
+$(document).ready(function () {
+  $('#example1').DataTable();
+});
+
+
 
 
 // LogOut from local storage
