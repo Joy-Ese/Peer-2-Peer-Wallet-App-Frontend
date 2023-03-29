@@ -32,11 +32,11 @@
         <div class="row p-3 d-flex justify-content-center align-items-center h-100">
           <div class="col-12 col-md-9 col-lg-7 col-xl-6">
             <div class="card card-style">
-              <div class="col-xl-6 d-xl-block">
+              <!-- <div class="col-xl-6 d-none d-xl-block position-absolute start-0 top-20 translate-middle-y">
                 <img src="../images/Login-pana.svg"
                   alt="Sample photo" class="img-fluid form-img"/>
-              </div>
-              <div class="card-body p-5">
+              </div> -->
+              <div class="card-body p-md-5">
                 <h3 class="text-uppercase text-center mb-5">Log In</h3>
 
                 <form id="loginForm">
@@ -46,10 +46,16 @@
                     <input type="text" id="userNameLogin" class="form-control form-control-lg" />
                   </div>
 
-                  <div class="form-outline mb-3">
-                    <label class="form-label mt-2" for="passwordLogin">Password</label>
-                    <span class="fa-sharp fa-solid fa-eye errspan" id="togglePassword"></span>
-                    <input type="password" id="passwordLogin" class="form-control form-control-lg" /> 
+                  <div class="form-outline mb-3 d-flex">
+                    <div class="col-12">
+                      <label class="form-label mt-2" for="passwordLogin">Password</label>
+                      <input type="password" id="passwordLogin" class="form-control form-control-lg" /> 
+                    </div>
+                    <div class="spanEye">
+                      <span class="fa-sharp fa-solid fa-eye-slash" onclick="toggle()" id="togglePassword"></span>
+                      <span class="fa-sharp fa-solid fa-eye d-none"></span>
+                    </div>
+                    
                   </div>
 
                   <div class="d-flex justify-content-center">

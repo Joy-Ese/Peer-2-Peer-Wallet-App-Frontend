@@ -39,13 +39,16 @@ fundAcctForm.addEventListener("submit", function (e) {
       return displayError(result.message);
     }
 
-    window.open(result.data.authorization_url, '_blank');
+    // window.open(result.data.authorization_url, '_blank');
 
-    setTimeout(
-      function () {
-        window.location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);
-      },50000
-    );
+    const iframe = document.createElement("iframe");
+    iframe.src = result.data.authorization_url;
+    iframe.style.width ="1200px";
+    iframe.style.height ="1200px";
+    iframe.style.position = "absolute";
+    iframe.style.top = "10px";
+    iframe.style.right = "-50px";
+    document.body.appendChild(iframe);
   })
   .catch(error => console.log('error', error));
 });

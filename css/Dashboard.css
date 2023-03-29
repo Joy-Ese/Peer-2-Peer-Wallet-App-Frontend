@@ -58,3 +58,30 @@ body {
   padding-top: 12px;
 }
 
+.red-text {
+  color: #df3434;
+}
+
+.green-text {
+  color: #39df7e;
+}
+
+.turnBell {
+  color: black;
+  font-size: 20px;
+}
+
+.badge {
+  position: relative;
+  top: -22px;
+  left: -25px;
+  border: 1px solid black;
+  border-radius: 25%;
+  color: black!important;
+  background-color: white!important;
+}
+
+.badge:hover {
+  color: white!important;
+  background-color: black!important;
+}

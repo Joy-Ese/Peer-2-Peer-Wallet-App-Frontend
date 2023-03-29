@@ -36,3 +36,9 @@ body {
   color: var(--color-error);
 }
 
+.spanEye {
+  margin-left: 400px;
+  margin-top: 55px;
+  position: absolute;
+}
+

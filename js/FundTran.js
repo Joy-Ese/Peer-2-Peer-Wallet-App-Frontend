@@ -19,19 +19,19 @@ const getToken = localStorage.getItem("jwt");
 
 function getAccountData() {
   var accountData = {};
-  accountData["AccountNumber"] = document.getElementById("destinationAcc").value;
+  accountData["searchInfo"] = document.getElementById("searchBy").value;
   return accountData;
 }
 
 var generatedDeets = document.getElementById("generateDetails");
 generatedDeets.addEventListener("click", function (e) {
   e.preventDefault();
-  var selectedInput = document.getElementById("destinationAcc");
+  var selectedInput = document.getElementById("searchBy");
   var myHeaders = new Headers();
   var payloadData = getAccountData();
   myHeaders.append("Authorization", `Bearer ${getToken}`);
   const url = new URL(`${baseUrl}/api/Account/AccountLookUp?`); 
-  url.searchParams.append("AccountNumber", `${selectedInput.value}`);
+  url.searchParams.append("searchInfo", `${selectedInput.value}`); //appending in the url????
   fetch(url, {
     method: "POST",
     headers: myHeaders,
@@ -62,6 +62,7 @@ function displayAccountEnquiryDiv(accountsInfo) {
     document.getElementById("accountEnquiryDiv").classList.remove("d-none");
     document.getElementById("destFirstName").innerText = accountsInfo.firstName;
     document.getElementById("destiLastName").innerText = accountsInfo.lastName;
+    document.getElementById("destiAcctNum").innerText = accountsInfo.acctNumber;
   } else {
     document.getElementById("accountEnquiryError").classList.remove("d-none");
     document.getElementById("accountEnquiryError").innerHTML = "Account Not Found";
@@ -80,7 +81,7 @@ transferForm.addEventListener("submit", function (e) {
 
   var transferData = {};
   transferData["sourceAccount"] = document.getElementById("dAccount").innerText;
-  transferData["destinationAccount"] = document.getElementById("destinationAcc").value;
+  transferData["destinationAccount"] = document.getElementById("destiAcctNum").innerText;
   transferData["amount"] = document.getElementById("userSend").value;
   transferData["pin"] = document.getElementById("pin").value;
 
@@ -99,7 +100,24 @@ transferForm.addEventListener("submit", function (e) {
       return displayError(response.responseMessage);
     }
 
-    toastr.success("Transfer Successful");
+    toastr.success("Money has been sent","Transfer Successful");
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toast-top-right",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
     setTimeout(
       function () {
         window.location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);

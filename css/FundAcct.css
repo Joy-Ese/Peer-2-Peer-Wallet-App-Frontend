@@ -62,3 +62,13 @@ body {
 .giveStyling {
   color: #df3434;
 }
+
+.svgFund {
+  height: 15rem;
+  margin-left: 4rem;
+}
+
+.turnBell {
+  color: rgb(99, 98, 98)!important;
+  font-size: 15px;
+}

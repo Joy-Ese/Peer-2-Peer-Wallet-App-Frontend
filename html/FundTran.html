@@ -33,10 +33,11 @@
         </div>
   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="navbar-nav me-auto mb-2 mb-lg-0">
-            
-          </div>
+          <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
           <div class="d-flex">
+            <div class="col me-2 turnBell">
+              <i class="fa fa-bell"></i>
+            </div>
             <div class="me-2" id="dUsername">Welcome </div>
             <a href="./UserProfile.html">
               <img src="../images/girl.jpg"
@@ -71,24 +72,17 @@
                 </div>
               </a>
             </li>
-            <li class="nav-item liButton">
-              <a class="nav-link bg-light turnBlack" href="./FundAcct.html">
-                <div class="col-7 d-flex justify-content-between">
-                  <i class="fa fa-money-bills"></i>
-                  <p>Fund Account</p>
-                </div>
-              </a>
-            </li>
+            
           </nav>
         </div>
 
         <div class="">
           <nav class="nav flex-column nav-pills nav-fill">
             <li class="nav-item liButton">
-              <a class="nav-link bg-light turnBlack" href="#">
+              <a class="nav-link bg-light turnBlack" href="./FundAcct.html">
                 <div class="col-7 d-flex justify-content-between">
-                  <i class="fa fa-bell mt-1"></i>
-                  <p>Notifications</p>
+                  <i class="fa fa-money-bills"></i>
+                  <p>Fund Account</p>
                 </div>
               </a>
             </li>
@@ -107,66 +101,63 @@
 
       <div class="col-9  pt-3">
         <div class="col">
-          <div class="col-auto d-flex justify-content-center">
-            <div class="fontColP me-2"> 
-              <i class="fa-solid fa-money-bill-transfer"></i>
-            </div>
-            <div class="fontColT"> 
-              FUND TRANSFER
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
           <div class="col-12 card mt-2">
             <div class="card-body">
               <form id="transferForm">
                 <div ></div>
                 <div class="row">
+                  <p class="fontColP">SEARCH BY</p>
+                  <div class="input-group mb-2">
+                    <input type="text" id="searchBy" class="form-control" placeholder="Email/Username/Account Number"/>
+                    <span class="input-group-btn">
+                      <button class="btn btn-outline-primary" id="generateDetails">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </span>
+                  </div>
+
                   <div class="d-flex justify-content-center">
                     <div class="col-6 borderR">
                       <div class="card-header fontColP mb-2">
                         SOURCE ACCOUNT
                       </div>
-                      <div>
-                        <p class="fontCol">ACCOUNT NUMBER</p>
-                        <div class="form-outline mb-2">
-                          <div class="me-2 borderRound" id="dAccount"> </div>
-                        </div>
-                        <p class="fontCol">FIRST NAME</p>
-                        <div class="form-outline mb-2">
-                          <div class="me-2 borderRound" id="dFirstName"> </div>
-                        </div>
-                        <p class="fontCol">LAST NAME</p>
-                        <div class="form-outline">
-                          <div class="me-2 borderRound" id="dLastName"> </div>
+                      <div class="col-12">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title titleSize">FIRST NAME</h5>
+                            <li class="list-group-item" id="dFirstName"></li>
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title titleSize">LAST NAME</h5>
+                            <li class="list-group-item" id="dLastName"></li>
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title titleSize">ACCOUNT NUMBER</h5>
+                            <li class="list-group-item" id="dAccount"></li>
+                          </div>
                         </div>
                       </div>
                     </div>
-
                     <div class="col-6">
                       <div class="card-header fontColP mb-2">
                         DESTINATION ACCOUNT
                       </div>
                       <div>
-                        <p class="fontCol">ACCOUNT NUMBER</p>
-                        <div class="input-group mb-2">
-                          <input type="text" id="destinationAcc" class="form-control"/>
-                          <span class="input-group-btn">
-                            <button class="btn btn-outline-primary" id="generateDetails">
-                              <i class="fa fa-search"></i>
-                            </button>
-                          </span>
-                        </div>
                         <p id="accountEnquiryError" class="d-none accountSearchErrorMsg p-2"></p>
-                        <div class="d-none" id="accountEnquiryDiv">
-                          <p class="fontCol">FIRST NAME</p>
-                          <div class="form-outline mb-2">
-                            <div class="me-2 borderRound" id="destFirstName"> </div>
-                          </div>
-                          <p class="fontCol">LAST NAME</p>
-                          <div class="form-outline">
-                            <div class="me-2 borderRound" id="destiLastName"> </div>
+                        <div class="col-12 d-none" id="accountEnquiryDiv">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title titleSize">FIRST NAME</h5>
+                              <li class="list-group-item" id="destFirstName"></li>
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title titleSize">LAST NAME</h5>
+                              <li class="list-group-item" id="destiLastName"></li>
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title titleSize">ACCOUNT NUMBER</h5>
+                              <li class="list-group-item" id="destiAcctNum"></li>
+                            </div>
                           </div>
                         </div>
                       </div>

@@ -59,7 +59,6 @@ function displayError(message){
 }
 
 
-
 function redirectToDashboard(reload) {
   localStorage.setItem("userData",JSON.stringify(reload))
   location.replace(`http://127.0.0.1:5500/html/Dashboard.html`);
@@ -67,11 +66,17 @@ function redirectToDashboard(reload) {
 
 
 const togglePassword = document.querySelector('#togglePassword');
-  const password = document.querySelector('#passwordLogin');
+const password = document.querySelector('#passwordLogin');
+const toggleOpenClose = document.getElementsByTagName('span')[0];
 
-  togglePassword.addEventListener('click', function (e) {
+const toggle = () => {
+  if (toggleOpenClose.classList.contains('fa-eye-slash')) {
     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
     password.setAttribute('type', type);
-    this.classList.toggle('fa-sharp fa-solid fa-eye-slash');
-});
-
+    toggleOpenClose.classList.remove('fa-eye-slash');
+    toggleOpenClose.classList.add('fa-eye');
+  } else {
+    toggleOpenClose.classList.remove('fa-eye');
+    toggleOpenClose.classList.add('fa-eye-slash');
+  }
+}

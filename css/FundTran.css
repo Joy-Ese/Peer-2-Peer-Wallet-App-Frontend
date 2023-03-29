@@ -64,3 +64,13 @@ body {
 .giveStyling {
   color: #df3434;
 }
+
+.turnBell {
+  color: rgb(99, 98, 98)!important;
+  font-size: 15px;
+}
+
+.titleSize {
+  font-size: 12px;
+  color: gray;
+}
