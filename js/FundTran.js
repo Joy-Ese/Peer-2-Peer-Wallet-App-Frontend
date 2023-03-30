@@ -13,10 +13,29 @@ dAcc.insertAdjacentText("beforeend", usersData.accountNumber);
 dFirst.insertAdjacentText("beforeend", usersData.firstName);
 dLast.insertAdjacentText("beforeend", usersData.lastName);
 
-
-//GET DETAILS ON ACCOUNT NUMBER POST
 const getToken = localStorage.getItem("jwt");
 
+// GET User display picture
+var myHeaders = new Headers();
+myHeaders.append("Authorization", `Bearer ${getToken}`);
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+};
+  fetch(`${baseUrl}/api/Dashboard/GetUserImage`, 
+  requestOptions
+  ).then(response => response.json())
+  .then(img => {
+    console.log(img);
+    document.getElementById("userImageFromDB").src = "data:image/png;base64," + img.imageDetails;
+  })
+  .catch(error => console.log('error', error));
+//////////////
+
+
+
+//GET DETAILS ON ACCOUNT NUMBER POST
 function getAccountData() {
   var accountData = {};
   accountData["searchInfo"] = document.getElementById("searchBy").value;

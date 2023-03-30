@@ -3,11 +3,29 @@ const baseUrl = "http://localhost:7236";
 const getToken = localStorage.getItem("jwt");
 
 const usersData = JSON.parse(localStorage.getItem("userData")); 
-// console.log(usersData);
 
 const dUser = document.getElementById("dUsername");
 
 dUser.insertAdjacentText("beforeend", usersData.username);
+
+
+// GET User display picture
+var myHeaders = new Headers();
+myHeaders.append("Authorization", `Bearer ${getToken}`);
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+};
+  fetch(`${baseUrl}/api/Dashboard/GetUserImage`, 
+  requestOptions
+  ).then(response => response.json())
+  .then(img => {
+    console.log(img);
+    document.getElementById("userImageFromDB").src = "data:image/png;base64," + img.imageDetails;
+  })
+  .catch(error => console.log('error', error));
+//////////////
 
 
 // POST paystack initialize transaction
@@ -38,8 +56,6 @@ fundAcctForm.addEventListener("submit", function (e) {
     if (!result.status) {
       return displayError(result.message);
     }
-
-    // window.open(result.data.authorization_url, '_blank');
 
     const iframe = document.createElement("iframe");
     iframe.src = result.data.authorization_url;

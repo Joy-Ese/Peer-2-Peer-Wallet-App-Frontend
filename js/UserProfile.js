@@ -1,5 +1,14 @@
 const baseUrl = "http://localhost:7236";
 
+const usersData = JSON.parse(localStorage.getItem("userData")); 
+// console.log(usersData);
+
+const dUser = document.getElementById("dUsername");
+const dAcc = document.getElementById("dAccount");
+
+dUser.insertAdjacentText("beforeend", usersData.username);
+
+
 // GET user details to display in form
 const getToken = localStorage.getItem("jwt");
 
@@ -14,7 +23,7 @@ var requestOptions = {
   requestOptions
   ).then(response => response.json())
   .then(data => {
-    console.log(data);
+    // console.log(data);
     document.getElementById("firstName").innerText = data.firstName;
     document.getElementById("lastName").innerHTML = data.lastName;
     document.getElementById("userName").innerHTML = data.username;
@@ -70,6 +79,69 @@ changePinForm.addEventListener("submit", function (e) {
 function displayError(message){
   document.getElementById("error_msg").innerHTML = message
 }
+
+
+// Picture Upload
+const picForm = document.getElementById("uploadPicForm");
+
+picForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const userFile = document.getElementById("photoUpload").files[0];
+
+  const formData = new FormData();
+  formData.append("ImageDetails", userFile);
+
+  var myHeaders = new Headers();
+  myHeaders.append("Authorization", `Bearer ${getToken}`);
+
+  fetch(`${baseUrl}/api/Dashboard/UploadNewImage`, { 
+    method: "POST",
+    headers: myHeaders,
+    body: formData,
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log(result);
+
+    if (!result.status) {
+      return displayErrorForImageUpload(result.message);
+    }
+    displayErrorForImageUpload(result.message);
+
+    setTimeout(
+      function () {
+        window.location.replace(`http://127.0.0.1:5500/html/UserProfile.html`);
+      },2000
+    );
+  })
+  .catch(error => console.log('error', error));
+})
+
+
+function displayErrorForImageUpload(message){
+  document.getElementById("error_msg_ForImageUpload").innerHTML = message
+}
+///////////
+
+
+// GET User display picture
+var myHeaders = new Headers();
+myHeaders.append("Authorization", `Bearer ${getToken}`);
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+};
+  fetch(`${baseUrl}/api/Dashboard/GetUserImage`, 
+  requestOptions
+  ).then(response => response.json())
+  .then(img => {
+    console.log(img);
+    document.getElementById("userImageFromDB").src = "data:image/png;base64," + img.imageDetails;
+  })
+  .catch(error => console.log('error', error));
+//////////////
 
 
 

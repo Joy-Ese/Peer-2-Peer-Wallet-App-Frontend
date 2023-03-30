@@ -33,15 +33,20 @@
         </div>
   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="navbar-nav me-auto mb-2 mb-lg-0">
-            
-          </div>
+          <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
           <div class="d-flex">
-            <div class="me-2" id="dUsername">Welcome </div>
+            <span class="mt-2">
+              <button type="button" class="btn btn-danger" id="SendNotification" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                <i class="fa fa-bell turnBell"></i>
+              </button>
+              <span class="badge badge-light">0</span>
+            </span>
+          <div class="d-flex">
+            <div class="me-2 mt-2" id="dUsername">Welcome </div>
             <a href="#">
-              <img src="../images/girl.jpg"
+              <img id="userImageFromDB"
                 class="img-fluid rounded-circle"
-                alt="Profile" width="20" height="20"
+                alt="Profile" width="50" height="50"
               />
             </a>
           </div>
@@ -71,25 +76,16 @@
                 </div>
               </a>
             </li>
-
-            <li class="nav-item liButton">
-              <a class="nav-link bg-light turnBlack" href="./FundAcct.html">
-                <div class="col-7 d-flex justify-content-between">
-                  <i class="fa fa-credit-card mt-1"></i>
-                  <p>Fund Account</p>
-                </div>
-              </a>
-            </li>
           </nav>
         </div>
 
         <div class="">
           <nav class="nav flex-column nav-pills nav-fill">
             <li class="nav-item liButton">
-              <a class="nav-link bg-light turnBlack" href="#">
+              <a class="nav-link bg-light turnBlack" href="./FundAcct.html">
                 <div class="col-7 d-flex justify-content-between">
-                  <i class="fa fa-bell mt-1"></i>
-                  <p>Notifications</p>
+                  <i class="fa fa-money-bills"></i>
+                  <p>Fund Account</p>
                 </div>
               </a>
             </li>
@@ -112,6 +108,20 @@
               Update Your Profile
             </h4>
           </div>
+          <!--  -->
+          <form id="uploadPicForm">
+            <div class="card col-6 mb-3">
+              <div class="card-body">
+                <p id="error_msg_ForImageUpload" class="giveStyling pe-3"></p> 
+                <div class="col-12 mb-3">
+                  <label for="profile" class="form-label fontCol">UPLOAD AN IMAGE TO SET YOUR DISPLAY PICTURE:</label>
+                  <input class="form-control form-control-sm mb-3" type="file" id="photoUpload" accept=".jpg, .jpeg, .png, .pdf">
+                  <button class="btn btn-primary ms-2" type="submit" value="Submit">Upload</button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!--  -->
           <form id="changePinForm">
             <div class="row">
               <div class="col-md-6 mb-3">
@@ -142,13 +152,13 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 mb-3">
+              <div class="col-md-6 mb-3">
                 <p class="fontCol">EMAIL</p>
                 <div class="form-outline">
                   <div class="me-2 borderRound" id="email"> </div>
                 </div>
               </div>
-              <div class="col-md-12 mb-3">
+              <div class="col-md-6 mb-3">
                 <p class="fontCol">ADDRESS</p>
                 <div class="form-outline">
                   <div class="me-2 borderRound" id="address"> </div>
@@ -173,7 +183,7 @@
               <p id="error_msg" class="giveStyling pe-3"></p> 
             </div>
 
-            <button class="btn btn-primary ms-2" type="submit" value="Submit">Save Changes</button>
+            <button class="btn btn-primary ms-3" type="submit" value="Submit">Save Changes</button>
           </form>
         </div>
       </div>

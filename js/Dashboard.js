@@ -11,10 +11,12 @@ dAcc.insertAdjacentText("beforeend", usersData.accountNumber);
 
 // FirstName and LastName Avatar
 
+///////////////////////
 
-// GET Account Balance From Database
 const getToken = localStorage.getItem("jwt");
 
+
+// GET Account Balance From Database
 var myHeaders = new Headers();
 myHeaders.append("Authorization", `Bearer ${getToken}`);
 
@@ -30,6 +32,25 @@ var requestOptions = {
     document.getElementById("userBalance").innerHTML = Intl.NumberFormat('en-US').format(dataBal.balance);
   })
   .catch(error => console.log('error', error));
+
+
+// GET User display picture
+var myHeaders = new Headers();
+myHeaders.append("Authorization", `Bearer ${getToken}`);
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+};
+  fetch(`${baseUrl}/api/Dashboard/GetUserImage`, 
+  requestOptions
+  ).then(response => response.json())
+  .then(img => {
+    console.log(img);
+    document.getElementById("userImageFromDB").src = "data:image/png;base64," + img.imageDetails;
+  })
+  .catch(error => console.log('error', error));
+//////////////
 
 
 // Populate Transaction Table HttpGet
@@ -61,15 +82,16 @@ var requestOptions = {
     }
   );
 
-
 //Jquery Data Table
 $( document ).ready(function () {
   $('#example').DataTable({
     scrollY: 300,
     scrollX: true,
+  });
 });
-});
+// Populate dataTable with Ajax ??????
 
+//////////////////////////
 
 
 // // Signal R Connetion
