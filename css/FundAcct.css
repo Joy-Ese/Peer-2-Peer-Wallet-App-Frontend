@@ -87,3 +87,15 @@ body {
   color: white!important;
   background-color: black!important;
 }
+
+.avataR {
+  font-size: 20px;
+}
+
+.previewTitle {
+  margin-left: 6rem!important;
+}
+
+.editLeftTab {
+  margin-left: 1.8rem;
+}

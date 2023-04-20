@@ -9,10 +9,6 @@ const dAcc = document.getElementById("dAccount");
 dUser.insertAdjacentText("beforeend", usersData.username);
 dAcc.insertAdjacentText("beforeend", usersData.accountNumber);
 
-// FirstName and LastName Avatar
-
-///////////////////////
-
 const getToken = localStorage.getItem("jwt");
 
 
@@ -51,6 +47,7 @@ var requestOptions = {
   })
   .catch(error => console.log('error', error));
 //////////////
+
 
 
 // Populate Transaction Table HttpGet

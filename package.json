@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@microsoft/signalr": "^7.0.4"
+    "@microsoft/signalr": "^7.0.4",
+    "sweetalert2": "^11.7.3"
   }
 }

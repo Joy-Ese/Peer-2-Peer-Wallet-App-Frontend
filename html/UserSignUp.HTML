@@ -30,17 +30,18 @@
         <div class="col">
           <div class="card card-registration my-4">
             <div class="row g-0">
-              <div class="col-xl-6 d-none d-xl-block">
+              <div class="col-xl-6 d-none d-xl-block svgDisplay">
                 <img src="../images/Sign up-pana.svg"
                   alt="Sample photo" class="img-fluid form-img"/>
               </div>
               <form class="col-xl-6 signUpForm" id="signUpForm" 
-                onsubmit="setTimeout(function(){window.location.reload();},2000);">
+              onsubmit="redirectToLogin()">
                 <div class="card-body p-md-5 text-black ">
                   <b><h3 class="mb-3 text-uppercase text-center">Sign Up</h3></b>
 
                   <div class="row">
-                    <div class="form__message form__message--error" id="error_msg"></div>
+                    <span class="giveStyling pe-3" id="error_msg_ForSignUp"></span>
+                    <span id="success_msg_ForSignUp" class="giveStyle pe-3"></span> 
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="firstName">First Name</label>
@@ -65,6 +66,14 @@
                         <p>Error message</p>
                       </div>
                     </div>
+                    <div class="form-outline mt-2 mb-3">
+                      <label class="form-label" for="address">Address</label>
+                      <input type="text" id="address" class="form-control " />
+                      <p>Error message</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
                         <label class="form-label mt-2" for="password">Password</label>
@@ -72,7 +81,15 @@
                         <p>Error message</p>
                       </div>
                     </div>
+                    <div class="col-md-12 mb-3">
+                      <div class="form-outline">
+                        <label class="form-label mt-2" for="conPassword">Confirm Password</label>
+                        <input type="password" id="conPassword" class="form-control" pattern="^[a-zA-Z0-9]{6,}$" />
+                        <p>Error message</p>
+                      </div>
+                    </div>
                   </div>
+
                   <div class="row">
                     <div class="col-md-12 mb-3">
                       <div class="form-outline">
@@ -85,31 +102,6 @@
                       <div class="form-outline">
                         <label class="form-label mt-2" for="phoneNumber">Phone Number</label>
                         <input type="text" id="phoneNumber" class="form-control" pattern="^[0-9]{11}$" />
-                        <p>Error message</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-outline mt-2 mb-3">
-                    <label class="form-label" for="address">Address</label>
-                    <input type="text" id="address" class="form-control " />
-                    <p>Error message</p>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <div class="form-outline">
-                        <label class="form-label mt-2" for="pin">Pin</label>
-                        <input type="password" id="pin" class="form-control" 
-                          maxlength="4" pattern="^[0-9]{4}$" />
-                        <p>Error message</p>
-                      </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <div class="form-outline">
-                        <label class="form-label mt-2" for="conPin">Confirm Pin</label>
-                        <input type="password" id="conPin" class="form-control" 
-                          maxlength="4" pattern="^[0-9]{4}$" />
                         <p>Error message</p>
                       </div>
                     </div>

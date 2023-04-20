@@ -85,3 +85,18 @@ body {
   color: white!important;
   background-color: black!important;
 }
+
+.avataR {
+  font-size: 20px;
+}
+
+.previewTitle {
+  margin-left: 6rem!important;
+  /* font-size: 15px;
+  color: gray; */
+}
+
+.editLeftTab {
+  margin-left: 1.8rem;
+}
+

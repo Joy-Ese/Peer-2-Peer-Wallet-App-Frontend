@@ -42,3 +42,7 @@ body {
   position: absolute;
 }
 
+.security {
+  font-size: 15px;
+  color: gray;
+}

@@ -42,3 +42,14 @@ button {
   visibility: hidden;
 }
 
+.svgDisplay {
+  margin-top: 7rem;
+}
+
+.giveStyling {
+  color: #df3434;
+}
+
+.giveStyle {
+  color: #39df7e;
+}

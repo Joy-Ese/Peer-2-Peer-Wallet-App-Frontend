@@ -17,11 +17,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body onload="startCountdown()">
@@ -33,21 +37,20 @@
         </div>
   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
-          <div class="d-flex">
+          <div class="navbar-nav me-auto mb-2 mb-lg-0 previewTitle">My Profile</div>
+          <!--  -->
+          <div class="whenLogIN d-flex">
             <span class="mt-2">
               <button type="button" class="btn btn-danger" id="SendNotification" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                 <i class="fa fa-bell turnBell"></i>
               </button>
               <span class="badge badge-light">0</span>
             </span>
-          <div class="d-flex">
             <div class="me-2 mt-2" id="dUsername">Welcome </div>
-            <a href="#">
+            <a href="">
               <img id="userImageFromDB"
                 class="img-fluid rounded-circle"
-                alt="Profile" width="50" height="50"
-              />
+                width="50" height="50"/>
             </a>
           </div>
         </div>
@@ -89,11 +92,21 @@
                 </div>
               </a>
             </li>
+            <!--  -->
+            <li class="nav-item liButton">
+              <a class="nav-link bg-light turnBlack" href="./UserProfile.html">
+                <div class="col-4 d-flex justify-content-between">
+                  <i class="fas fa-user-alt"></i>
+                  <p class="editLeftTab">Profile</p>
+                </div>
+              </a>
+            </li>
+            <!--  -->
             <li class="nav-item pt-3 liButton">
               <a class="nav-link bg-light turnBlack" href="#" id="btnLogoff">
-                <div class="col-5 d-flex justify-content-between">
+                <div class="col-4 d-flex justify-content-between">
                   <i class="fa fa-arrow-right-from-bracket mt-1"></i>
-                  <p>Logout</p>
+                  <p class="editLeftTab">Logout</p>
                 </div>
               </a>
             </li>
@@ -103,87 +116,246 @@
 
       <div class="col-9">
         <div>
-          <div class="row">
-            <h4 class="col mb-3 pt-3">
-              Update Your Profile
-            </h4>
+          <div class="row mb-4 mt-3">
+            <div class="col-10 d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary" id="" data-bs-toggle="modal" data-bs-target="#updatePin">
+                Update Pin
+              </button>
+              <!--  -->
+              <button type="button" class="btn btn-secondary" id="" data-bs-toggle="modal" data-bs-target="#changeImage">
+                Change Display Image
+              </button>
+              <!--  -->
+              <button type="button" class="btn btn-secondary" id="" data-bs-toggle="modal" data-bs-target="#changePass">
+                Change Password
+              </button>
+            </div>
           </div>
-          <!--  -->
-          <form id="uploadPicForm">
-            <div class="card col-6 mb-3">
-              <div class="card-body">
-                <p id="error_msg_ForImageUpload" class="giveStyling pe-3"></p> 
-                <div class="col-12 mb-3">
-                  <label for="profile" class="form-label fontCol">UPLOAD AN IMAGE TO SET YOUR DISPLAY PICTURE:</label>
-                  <input class="form-control form-control-sm mb-3" type="file" id="photoUpload" accept=".jpg, .jpeg, .png, .pdf">
-                  <button class="btn btn-primary ms-2" type="submit" value="Submit">Upload</button>
+          <!-- MODALS -->
+          <!-- Set Security Question -->
+          <div class="modal fade" id="setSecQ" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h6 class="modal-title" id="exampleModalLabel">
+                    Please choose a security question. <br>
+                    Note: Answer is case sensitive 
+                  </h6>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="securityQuestionForm">
+                    <span class="giveStyling" id="error_msg_ForSecQ"></span>
+                    <span class="giveStyle" id="success_msg_ForSecQ"></span>
+                    <select class="security" name="security1" id="securityQues">
+                      <option  value="">Select a question from the following options.</option>
+                      <option>Who is your daddy?</option>
+                      <option>What is your favorite color?</option>
+                      <option>What is your mother's favorite aunt's favorite color?</option>
+                      <option>Where does the rain in Spain mainly fall?</option>
+                      <option>If Mary had three apples, would you steal them?</option>
+                      <option>What is the name of your first pet?</option>
+                    </select>
+                    <div class="col-12 form-outline mb-3">
+                      <label class="form-label mt-2" for="securityAns">Answer</label>
+                      <input type="text" id="securityAns" class="form-control form-control-sm" />
+                    </div>
+                    <button class="btn btn-primary" type="submit" value="Submit">Save</button>
+                    <!-- <select class="security" name="security2">
+                      <option value="0">Select a question from the following options.</option>
+                      <option value="1">Who's your daddy?</option>
+                      <option value="2">What is your favorite color?</option>
+                      <option value="3">What is your mother's favorite aunt's favorite color?</option>
+                      <option value="4">Where does the rain in Spain mainly fall?</option>
+                      <option value="5">If Mary had three apples, would you steal them?</option>
+                      <option value="6">What brand of food did your first pet eat?</option>
+                    </select> -->
+                  </form>
                 </div>
               </div>
             </div>
-          </form>
-          <!--  -->
-          <form id="changePinForm">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <p class="fontCol">FIRST NAME</p>
-                <div class="form-outline">
-                  <div class="me-2 borderRound" id="firstName"> </div>
+          </div>
+          <!-- //////////////////////////////////////////////////// -->
+          <!-- Update Pin Modal -->
+          <div class="modal fade" id="updatePin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h6 class="modal-title" id="exampleModalLabel">Update your pin. <br> Must input your old pin</h6>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="updatePinForm">
+                    <div class="row">
+                      <span id="error_msg_ForUpdatePin" class="giveStyling pe-3"></span> 
+                      <span id="success_msg_ForUpdatePin" class="giveStyle pe-3"></span> 
+                      <!--  -->
+                      <span class="mt-2">Security Question</span>
+                      <div id="getSecurityQ"></div>
+                      <div class="col-12 form-outline mb-3">
+                        <label class="form-label mt-2" for="securityAns">Answer</label>
+                        <input type="text" id="securityAns" class="form-control form-control-sm" />
+                      </div>
+                      <!--  -->
+                      <div class="col-md-6 mb-3">
+                        <div class="form-outline">
+                          <label class="form-label mt-2" for="oldPin">Old Pin</label>
+                          <input type="password" id="oldPin" class="form-control" 
+                            maxlength="4" pattern="^[0-9]{4}$" placeholder="Old Pin" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="form-outline">
+                          <label class="form-label mt-2" for="newPin">New Pin</label>
+                          <input type="password" id="newPin" class="form-control"
+                          maxlength="4" pattern="^[0-9]{4}$" placeholder="New Pin" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit" value="Submit">Save Changes</button>
+                  </form>
                 </div>
               </div>
-              <div class="col-md-6 mb-3">
-                <p class="fontCol">LAST NAME</p>
-                <div class="form-outline">
-                  <div class="me-2 borderRound" id="lastName"> </div>
+            </div>
+          </div>
+          <!-- ////////////////// -->
+          <!-- Change Image -->
+          <div class="modal fade" id="changeImage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h6 class="modal-title" id="exampleModalLabel"></h6>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body">
+                  <form id="deletePicForm">
+                    <span id="error_msg_ForImageUpload_Delete" class="giveStyling"></span> 
+                    <span id="success_msg_ForImageUpload_Delete" class="giveStyle"></span>
+                    <div class="card mb-3">
+                      <div class="card-body">
+                        <div class="col-12 d-flex justify-content-between">
+                          <div class="fontCol mt-2">DELETE EXISTING IMAGE?</div>
+                          <button class="btn btn-danger ms-2" type="submit" value="Submit">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <form id="uploadPicForm">
+                    <div class="card mb-3">
+                      <div class="card-body">
+                        <div class="col-12">
+                          <label for="profile" class="form-label fontCol">UPLOAD AN IMAGE TO SET YOUR DISPLAY PICTURE:</label>
+                          <input class="form-control form-control-sm mb-3" type="file" id="photoUpload" accept=".jpg, .jpeg, .png, .pdf">
+                          <button class="editUpload btn btn-primary" type="submit" value="Submit">Upload</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ////////////////////// -->
+          <!-- Change Password -->
+          <div class="modal fade" id="changePass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h6 class="modal-title" id="exampleModalLabel">Change Password</h6>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="changePasswordForm">
+                    <div class="row">
+                      <span id="error_msg_ForChangePass" class="giveStyling pe-3"></span> 
+                      <span id="success_msg_ForChangePass" class="giveStyle pe-3"></span> 
+                      <!--  -->
+                      <span class="mt-2">Security Question</span>
+                      <div id="getSecurityQCH"></div>
+                      <div class="col-12 form-outline mb-3">
+                        <label class="form-label mt-2" for="securityAnsCH">Answer</label>
+                        <input type="text" id="securityAnsCH" class="form-control form-control-sm" />
+                      </div>
+                      <!--  -->
+                      <div class="col-md-6 mb-3">
+                        <div class="form-outline">
+                          <label class="form-label mt-2" for="passwordCH">Password</label>
+                          <input type="password" id="passwordCH" class="form-control" pattern="^[a-zA-Z0-9]{6,}$" />
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <div class="form-outline">
+                          <label class="form-label mt-2" for="conPasswordCH">Confirm Password</label>
+                          <input type="password" id="conPasswordCH" class="form-control" pattern="^[a-zA-Z0-9]{6,}$" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit" value="Submit">Save</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //////////////////////// -->
+          
+          <!-- Notification Modal -->
+          <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h6 class="modal-title" id="exampleModalLabel">Notifications</h6>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p id="notificationMsg"></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /////////////////////// -->
+          <form id="updateUserInfoForm">
+            <div class="row">
+              <span id="error_msg_ForUserInfo" class="giveStyling pe-3"></span> 
+              <span id="success_msg_ForUserInfo" class="giveStyle pe-3"></span> 
+              <div class="col-md-6 mb-3">
+                <label class="fontCol form-label"><b>FIRST NAME</b></label>
+                <input type="text" class="form-control form-control-sm" id="firstNameUpdate" readonly>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="fontCol form-label"><b>LAST NAME</b></label>
+                <input type="text" class="form-control form-control-sm" id="lastNameUpdate">
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <p class="fontCol">USERNAME</p>
-                <div class="form-outline">
-                  <div class="me-2 borderRound" id="userName"> </div>
-                </div>
+                <label class="fontCol form-label"><b>USERNAME</b></label>
+                <input type="text" class="form-control fUSERNAMEorm-control-sm" id="usernameUpdate">
               </div>
               <div class="col-md-6 mb-3">
-                <p class="fontCol">PHONE NUMBER</p>
-                <div class="form-outline">
-                  <div class="me-2 borderRound" id="phoneNumber"> </div>
-                </div>
+                <label class="fontCol form-label"><b>PHONE NUMBER</b></label>
+                <input type="text" class="form-control fUSERNAMEorm-control-sm" id="phoneNumUpdate" readonly>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <p class="fontCol">EMAIL</p>
-                <div class="form-outline">
-                  <div class="me-2 borderRound" id="email"> </div>
-                </div>
+                <label class="fontCol form-label"><b>EMAIL</b></label>
+                <input type="text" class="form-control fUSERNAMEorm-control-sm" id="emailUpdate" readonly>
               </div>
               <div class="col-md-6 mb-3">
-                <p class="fontCol">ADDRESS</p>
-                <div class="form-outline">
-                  <div class="me-2 borderRound" id="address"> </div>
-                </div>
+                <label class="fontCol form-label"><b>ADDRESS</b></label>
+                <input type="text" class="form-control fUSERNAMEorm-control-sm" id="addrUpdate">
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <div class="form-outline">
-                  <label class="form-label mt-2" for="oldPin">Old Pin</label>
-                  <input type="password" id="oldPin" class="form-control" 
-                    maxlength="4" pattern="^[0-9]{4}$" placeholder="Old Pin" />
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <div class="form-outline">
-                  <label class="form-label mt-2" for="newPin">New Pin</label>
-                  <input type="password" id="newPin" class="form-control"
-                  maxlength="4" pattern="^[0-9]{4}$" placeholder="New Pin" />
-                </div>
-              </div>
-              <p id="error_msg" class="giveStyling pe-3"></p> 
             </div>
 
-            <button class="btn btn-primary ms-3" type="submit" value="Submit">Save Changes</button>
+            <button class="btn btn-primary" type="submit" value="Submit"
+            
+            >Save Changes</button>
+            <!-- Finish the update user info -->
           </form>
         </div>
       </div>
@@ -229,6 +401,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+  <script src="../js/EnforceLogIn.js"></script>
 
 </body>
 </html>

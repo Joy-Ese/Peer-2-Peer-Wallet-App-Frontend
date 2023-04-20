@@ -46,9 +46,7 @@ loginForm.addEventListener("submit", function (e) {
       if(!response.status){
         return displayError(response.result)
       }
-
       getUserDetails();
-
     })
   .catch(error => console.log('error', error));
 });

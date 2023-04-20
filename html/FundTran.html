@@ -17,11 +17,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body onload="startCountdown()">
@@ -33,8 +37,9 @@
         </div>
   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
-          <div class="d-flex">
+          <div class="navbar-nav me-auto mb-2 mb-lg-0 previewTitle">Fund Transfer</div>
+          <!--  -->
+          <div class="whenLogIN d-flex">
             <span class="mt-2">
               <button type="button" class="btn btn-danger" id="SendNotification" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                 <i class="fa fa-bell turnBell"></i>
@@ -42,10 +47,10 @@
               <span class="badge badge-light">0</span>
             </span>
             <div class="me-2 mt-2" id="dUsername">Welcome </div>
-            <a href="./UserProfile.html">
+            <a href="">
               <img id="userImageFromDB"
                 class="img-fluid rounded-circle"
-                alt="Profile" width="50" height="50"
+                width="50" height="50"
               />
             </a>
           </div>
@@ -53,6 +58,63 @@
       </div>
     </nav>
   </div>
+
+  <!-- Notification Modal only on Dashboard for now -->
+  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLabel">Notifications</h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="notificationMsg"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Notification Modal only on Dashboard for now -->
+
+<!-- ////////////////////// -->
+<!-- Create Pin Modal -->
+<div class="modal fade" id="createPin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalLabel">Create a new pin</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="createPinForm">
+          <div class="row">
+            <span id="error_msg_ForCreatePin" class="giveStyling pe-3"></span> 
+            <span id="success_msg_ForCreatePin" class="giveStyle pe-3"></span> 
+            <div class="col-md-6 mb-3">
+              <div class="form-outline">
+                <label class="form-label mt-2" for="pinT">Pin</label>
+                <input type="password" id="pinT" class="form-control" 
+                  maxlength="4" pattern="^[0-9]{4}$" />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="form-outline">
+                <label class="form-label mt-2" for="confirmPinT">Confirm Pin</label>
+                <input type="password" id="confirmPinT" class="form-control"
+                maxlength="4" pattern="^[0-9]{4}$" />
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="submit" value="Submit">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /////////// -->
 
   <div class="container bg-light pb-5">
     <div class="row">
@@ -68,7 +130,7 @@
               </a>
             </li>
             <li class="nav-item pt-3 liButton">
-              <a class="nav-link bg-light turnBlack" href="#">
+              <a class="nav-link bg-light turnBlack" href="./FundTran.html">
                 <div class="col-7 d-flex justify-content-between">
                   <i class="fa fa-money-bill-transfer mt-1"></i>
                   <p>Fund Transfer</p>
@@ -89,11 +151,21 @@
                 </div>
               </a>
             </li>
+            <!--  -->
+            <li class="nav-item liButton">
+              <a class="nav-link bg-light turnBlack" href="./UserProfile.html">
+                <div class="col-4 d-flex justify-content-between">
+                  <i class="fas fa-user-alt"></i>
+                  <p class="editLeftTab">Profile</p>
+                </div>
+              </a>
+            </li>
+            <!--  -->
             <li class="nav-item pt-3 liButton">
               <a class="nav-link bg-light turnBlack" href="#" id="btnLogoff">
-                <div class="col-5 d-flex justify-content-between">
+                <div class="col-4 d-flex justify-content-between">
                   <i class="fa fa-arrow-right-from-bracket mt-1"></i>
-                  <p>Logout</p>
+                  <p class="editLeftTab">Logout</p>
                 </div>
               </a>
             </li>
@@ -257,6 +329,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+  <script src="../js/EnforceLogIn.js"></script>
 
 </body>
 </html>

@@ -7,11 +7,10 @@ function sendSignUpData() {
   signUpData["lastName"] = document.getElementById("lastName").value;
   signUpData["username"] = document.getElementById("userName").value;
   signUpData["password"] = document.getElementById("password").value;
+  signUpData["confirmPassword"] = document.getElementById("conPassword").value;
   signUpData["email"] = document.getElementById("email").value;
   signUpData["phoneNumber"] = document.getElementById("phoneNumber").value;
   signUpData["address"] = document.getElementById("address").value;
-  signUpData["pin"] = document.getElementById("pin").value;
-  signUpData["confirmPin"] = document.getElementById("conPin").value;
   return signUpData;
 }
 
@@ -31,18 +30,20 @@ signUpForm.addEventListener("submit", function (e) {
     console.log(result)
     
     if(!result.status){
-      return displayError(result.result)
+      return displayErrorForSignUp(result.message);
     }
+    Validate();
+    redirectToLogin();
   })
   .catch(error => console.log('error', error));
 });
 
-
-function displayError(message){
-  document.getElementById("error_msg").innerHTML = message
+function displayErrorForSignUp(message){
+  document.getElementById("error_msg_ForSignUp").innerHTML = message
 }
-
-
+function redirectToLogin() {
+  setTimeout(function(){window.location.replace("http://127.0.0.1:5500/html/UserLogIn.html");},2000);
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Validate Sign Up Form
@@ -51,16 +52,15 @@ function displayError(message){
   const lastname = document.getElementById("lastName");
   const username = document.getElementById("userName");
   const password = document.getElementById("password");
+  const conPassword = document.getElementById("conPassword");
   const email = document.getElementById("email");
   const phonenum = document.getElementById("phoneNumber");
   const addr = document.getElementById("address");
-  const pin = document.getElementById("pin");
-  const conPin = document.getElementById("conPin");
 
-  signUpForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+  signUpForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-    Validate();
+    // Validate();
   })
 
 
@@ -86,15 +86,14 @@ function displayError(message){
   }
 
 function Validate() {
-    const firstnameVal = firstname.value.trim();
-    const lastnameVal = lastname.value.trim();
-    const usernameVal = username.value.trim();
-    const passwordVal = password.value.trim();
-    const emailVal = email.value.trim();
-    const phonenumVal = phonenum.value.trim();
-    const addrVal = addr.value.trim();
-    const pinVal = pin.value.trim();
-    const conPinVal = conPin.value.trim();
+  const firstnameVal = firstname.value.trim();
+  const lastnameVal = lastname.value.trim();
+  const usernameVal = username.value.trim();
+  const passwordVal = password.value.trim();
+  const conPasswordVal = conPassword.value.trim();
+  const emailVal = email.value.trim();
+  const phonenumVal = phonenum.value.trim();
+  const addrVal = addr.value.trim();
 
   // First name
   if (firstnameVal === "") {
@@ -141,6 +140,17 @@ function Validate() {
     setSuccessMsg(password);
   }
 
+  // Confirm Password 
+  if (conPasswordVal === "") {
+    setErrorMsg(conPasswordVal, "Passwords do not match");
+  }
+  else if (conPasswordVal != passwordVal) {
+    setErrorMsg(conPasswordVal, "Passwords do not match");
+  }
+  else {
+    setSuccessMsg(conPasswordVal);
+  }
+
   // Email
   if (emailVal === "") {
     setErrorMsg(email, "Email required");
@@ -172,28 +182,6 @@ function Validate() {
   }
   else {
     setSuccessMsg(addr);
-  }
-
-  //Pin
-  if (pinVal === "") {
-    setErrorMsg(pin, "Pin required");
-  }
-  else if (pinVal.length > 4) {
-    setErrorMsg(pin, "Pin must not be more than 4 digits");
-  }
-  else {
-    setSuccessMsg(pin);
-  }
-
-  //Confirm Pin
-  if (conPinVal === "") {
-    setErrorMsg(conPin, "Pins do not match");
-  }
-  else if (conPinVal != pinVal) {
-    setErrorMsg(conPin, "Pins do not match");
-  }
-  else {
-    setSuccessMsg(conPin);
   }
 
   SuccessMsg(firstnameVal);

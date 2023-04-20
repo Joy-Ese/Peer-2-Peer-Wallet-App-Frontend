@@ -31,8 +31,91 @@ var requestOptions = {
     document.getElementById("userImageFromDB").src = "data:image/png;base64," + img.imageDetails;
   })
   .catch(error => console.log('error', error));
-//////////////
+///////////////////////////////////////////////////////////
 
+
+// GET BOOL TO CHECK IF USER HAS A PIN THEN PROCEED TO CREATE PIN ON MODAL SHOW
+var myHeaders = new Headers();
+myHeaders.append("Authorization", `Bearer ${getToken}`);
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+};
+fetch(`${baseUrl}/api/Dashboard/GetUserPin`, 
+  requestOptions
+  ).then(response => response.json())
+  .then(response => {
+    if (response == false) {
+      $(window).on("load", function() {
+        $('#createPin').modal('show');
+      })
+    } 
+    console.log(response);
+  })
+  .catch(error => console.log('error', error));
+///////////////////////////////////////////////////////////////
+
+
+// POST Create A New Pin
+function sendCreatePinData() {
+  var createPin = {};
+  createPin["pin"] = document.getElementById("pinT").value;
+  createPin["confirmPin"] = document.getElementById("confirmPinT").value;
+  return createPin;
+}
+
+const createPinForm = document.getElementById("createPinForm");
+createPinForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  displayCreatePinError("");
+
+  var myHeaders = new Headers();
+  var payloadData = sendCreatePinData();
+  myHeaders.append("Authorization", `Bearer ${getToken}`);
+  myHeaders.append("Content-Type", "application/json");
+  fetch(`${baseUrl}/api/Auth/CreatePin`, { 
+    method: "POST",
+    headers: myHeaders,
+    body: JSON.stringify(payloadData),
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log(result);
+
+    // ANOTHER METHOD TO DISPLAY ERRORS ON THE FRONTEND
+    // let li = "";
+    // result.errors.confirmPin.map(item=>{
+    //   li = li + `<li>${item}</li>`
+    // });
+    // let errorOutput = document.getElementById("error_msg_ForCreatePin")
+    // errorOutput.innerHTML = `<ul>${li}</ul>`;
+    ////////////////////////////////////////////
+
+    // Do for set security questions. Modal should pop up once user opens his profile page
+
+
+    if (!result.status) {
+      return displayCreatePinError(result.message);
+    }
+    displayCreatePinSuccess(result.message);
+
+    setTimeout(
+      function () {
+        window.location.replace(`http://127.0.0.1:5500/html/UserProfile.html`);
+      },2000
+    );
+  })
+  .catch(error => console.log('error', error));
+})
+
+function displayCreatePinError(message){
+  document.getElementById("error_msg_ForCreatePin").innerHTML = message
+}
+function displayCreatePinSuccess(message){
+  document.getElementById("success_msg_ForCreatePin").innerHTML = message
+}
+//////////////////////////////////////////////////
 
 
 //GET DETAILS ON ACCOUNT NUMBER POST
@@ -87,7 +170,6 @@ function displayAccountEnquiryDiv(accountsInfo) {
     document.getElementById("accountEnquiryError").innerHTML = "Account Not Found";
   }
 }
-
 
 
 // TRANSFER MONEY
