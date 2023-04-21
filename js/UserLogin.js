@@ -32,7 +32,7 @@ loginForm.addEventListener("submit", function (e) {
       const getUserDetails = () => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${response.result}`);
-        fetch(`${baseUrl}/api/Dashboard/UserDetails`, {
+        fetch(`${baseUrl}/api/Dashboard/GetUserDetails`, {
         method: "GET",
         headers: myHeaders,
         })

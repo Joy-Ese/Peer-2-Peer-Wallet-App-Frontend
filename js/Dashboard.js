@@ -20,7 +20,7 @@ var requestOptions = {
   method: 'GET',
   headers: myHeaders,
 };
-  fetch(`${baseUrl}/api/Dashboard/AccountBalance`, 
+  fetch(`${baseUrl}/api/Dashboard/GetUserAccountBalance`, 
   requestOptions
   ).then(response => response.json())
   .then(dataBal => {
