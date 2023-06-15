@@ -63,21 +63,19 @@ function redirectToDashboard(reload) {
 }
 
 
-const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#passwordLogin');
-const toggleOpenClose = document.getElementsByTagName('span')[0];
-
-const toggle = () => {
-  if (toggleOpenClose.classList.contains('fa-eye-slash')) {
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    toggleOpenClose.classList.remove('fa-eye-slash');
-    toggleOpenClose.classList.add('fa-eye');
-  } else {
-    toggleOpenClose.classList.remove('fa-eye');
-    toggleOpenClose.classList.add('fa-eye-slash');
-  }
-}
+$(document).ready(function() {
+  $("#icon-click").click(function() {
+    var className = $("#togglePassword").attr('class');
+    className = className.indexOf('slash') !== -1 ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'
+    $("#togglePassword").attr('class', className);
+    var input = $("#passwordLogin");
+    if (input.attr("type") == "text") {
+      input.attr("type", "password");
+    } else {
+      input.attr("type", "text");
+    }
+  });
+});
 
 
 

@@ -40,6 +40,13 @@ body {
   margin-left: 400px;
   margin-top: 55px;
   position: absolute;
+  cursor: pointer;
+  text-decoration: none;
+  color: #003366;
+}
+
+.spanEye:hover {
+  color: black;
 }
 
 .security {
